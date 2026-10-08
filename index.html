@@ -2,486 +2,359 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#0b0d12">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jehu's Home Workout</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
-:root{
- --bg:#090b10;
- --card:#151821;
- --card2:#1d222d;
- --text:#f7f8fb;
- --muted:#9299aa;
- --accent:#7c5cff;
- --accent2:#9b87ff;
- --green:#35d98b;
- --border:#292e3a;
-}
-
 body{
- font-family:Arial,Helvetica,sans-serif;
- background:var(--bg);
- color:var(--text);
- min-height:100vh;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#0b0f14;
+  color:#f5f7fa;
+  min-height:100vh;
 }
 
-button,input,select{font:inherit}
-button{cursor:pointer}
+button,input,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
 
 .app{
- max-width:1000px;
- margin:auto;
- padding-bottom:90px;
+  max-width:900px;
+  margin:auto;
+  padding-bottom:90px;
 }
 
 header{
- padding:24px 18px;
- display:flex;
- justify-content:space-between;
- align-items:center;
+  padding:24px 20px 16px;
+  background:#111720;
+  position:sticky;
+  top:0;
+  z-index:10;
+  border-bottom:1px solid #202832;
 }
 
-.logo{
- font-weight:900;
- font-size:18px;
- letter-spacing:.4px;
+.brand{
+  font-size:25px;
+  font-weight:800;
 }
 
-.logo span{color:var(--accent2)}
-
-main{padding:0 18px}
-
-.screen{display:none}
-.screen.active{display:block}
-
-.hero{
- background:linear-gradient(135deg,#211b3c,#151821 65%);
- border:1px solid var(--border);
- border-radius:25px;
- padding:24px;
- margin-bottom:16px;
+.subtitle{
+  color:#9da8b5;
+  margin-top:5px;
+  font-size:14px;
 }
 
-.hero small{
- color:var(--muted);
- font-size:12px;
+main{
+  padding:20px;
 }
 
-.hero h1{
- font-size:30px;
- margin:8px 0;
+.section{
+  display:none;
 }
 
-.hero p{
- color:var(--muted);
- line-height:1.5;
+.section.active{
+  display:block;
 }
 
 .card{
- background:var(--card);
- border:1px solid var(--border);
- border-radius:20px;
- padding:18px;
- margin-bottom:13px;
+  background:#121923;
+  border:1px solid #222d38;
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:16px;
+}
+
+.card h2{
+  font-size:19px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  font-size:16px;
+  margin-bottom:7px;
+}
+
+.muted{
+  color:#9da8b5;
+}
+
+.hero{
+  background:linear-gradient(135deg,#17212c,#10161e);
+  padding:22px;
+  border-radius:20px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#aeb8c4;
 }
 
 .grid{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:12px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
 }
 
 .stat{
- background:var(--card);
- border:1px solid var(--border);
- border-radius:18px;
- padding:17px;
+  background:#101720;
+  border:1px solid #232d37;
+  padding:15px;
+  border-radius:15px;
 }
 
-.stat-label{
- color:var(--muted);
- font-size:12px;
+.stat .value{
+  font-size:23px;
+  font-weight:800;
+  margin-top:5px;
 }
 
-.stat-value{
- font-size:23px;
- font-weight:900;
- margin-top:7px;
+.stat .label{
+  color:#8e9aa7;
+  font-size:12px;
 }
 
-.section-title{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin:25px 0 12px;
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:12px 15px;
+  background:#2d7ff9;
+  color:white;
+  font-weight:700;
 }
 
-.section-title h2{font-size:19px}
-
-.section-title span{
- color:var(--muted);
- font-size:12px;
+.btn.secondary{
+  background:#202b36;
 }
 
-.primary{
- width:100%;
- padding:15px;
- border:none;
- border-radius:14px;
- background:var(--accent);
- color:#fff;
- font-weight:800;
- margin-top:15px;
+.btn.danger{
+  background:#8f3030;
 }
 
-.primary:hover{background:var(--accent2)}
+.btn.small{
+  padding:8px 11px;
+  font-size:13px;
+}
 
-.secondary{
- padding:11px 14px;
- border:1px solid var(--border);
- border-radius:12px;
- background:var(--card2);
- color:white;
+.btn.full{
+  width:100%;
+}
+
+.row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.goal{
+  background:#101720;
+  border:1px solid #27323d;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:12px;
+}
+
+.goal.primary{
+  border-color:#2d7ff9;
+}
+
+.goal-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.goal-name{
+  font-size:18px;
+  font-weight:800;
 }
 
 .badge{
- display:inline-block;
- padding:6px 10px;
- border-radius:20px;
- background:#28213f;
- color:#b9aaff;
- font-size:11px;
- font-weight:800;
- margin-bottom:10px;
-}
-
-.workout-card h3{margin-bottom:6px}
-
-.muted{
- color:var(--muted);
- font-size:14px;
- line-height:1.5;
-}
-
-.exercise-row{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:12px;
- padding:14px 0;
- border-bottom:1px solid var(--border);
-}
-
-.exercise-row:last-child{border-bottom:none}
-
-.exercise-info{flex:1}
-
-.exercise-info strong{
- display:block;
- margin-bottom:5px;
-}
-
-.exercise-info span{
- color:var(--muted);
- font-size:12px;
-}
-
-.bottom-nav{
- position:fixed;
- left:0;
- right:0;
- bottom:0;
- height:70px;
- max-width:1000px;
- margin:auto;
- display:grid;
- grid-template-columns:repeat(5,1fr);
- background:rgba(14,16,23,.97);
- border-top:1px solid var(--border);
- z-index:20;
-}
-
-.nav-btn{
- background:none;
- border:none;
- color:var(--muted);
- font-size:10px;
-}
-
-.nav-btn.active{color:white}
-
-.nav-icon{
- display:block;
- font-size:20px;
- margin-bottom:3px;
-}
-
-.modal{
- position:fixed;
- inset:0;
- background:rgba(0,0,0,.78);
- display:none;
- align-items:flex-end;
- justify-content:center;
- z-index:100;
-}
-
-.modal.show{display:flex}
-
-.modal-content{
- width:min(620px,100%);
- max-height:94vh;
- overflow-y:auto;
- background:var(--card);
- border-radius:25px 25px 0 0;
- padding:22px;
- border:1px solid var(--border);
-}
-
-.modal-head{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin-bottom:20px;
-}
-
-.close{
- width:38px;
- height:38px;
- border:none;
- border-radius:12px;
- background:var(--card2);
- color:white;
+  display:inline-block;
+  font-size:11px;
+  padding:4px 7px;
+  border-radius:7px;
+  background:#2d7ff9;
+  margin-left:5px;
 }
 
 .progress{
- height:8px;
- background:#292e38;
- border-radius:20px;
- overflow:hidden;
- margin:10px 0 20px;
+  height:9px;
+  background:#222c35;
+  border-radius:20px;
+  overflow:hidden;
+  margin:12px 0 7px;
 }
 
-.progress-fill{
- height:100%;
- width:0%;
- background:var(--accent);
- transition:.3s;
+.progress-bar{
+  height:100%;
+  background:#2d7ff9;
+  width:0%;
+  transition:.3s;
 }
 
-.active-exercise{
- text-align:center;
- padding:8px 0 15px;
+.progress-text{
+  font-size:13px;
+  color:#aab4bf;
 }
 
-.active-exercise .number{
- color:var(--muted);
- font-size:12px;
+.goal-meta{
+  color:#8f9aa7;
+  font-size:12px;
+  margin-top:8px;
 }
 
-.active-exercise h2{
- font-size:27px;
- margin:9px 0;
+.goal-actions{
+  margin-top:12px;
 }
 
-.target{
- color:var(--accent2);
- font-weight:800;
+.form-group{
+  margin-bottom:13px;
 }
-
-.video-placeholder{
- height:150px;
- background:#090b10;
- border:1px solid var(--border);
- border-radius:18px;
- display:flex;
- align-items:center;
- justify-content:center;
- flex-direction:column;
- margin:15px 0;
-}
-
-.play-circle{
- width:52px;
- height:52px;
- border-radius:50%;
- background:var(--accent);
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:20px;
-}
-
-.video-placeholder span{
- color:var(--muted);
- font-size:11px;
- margin-top:9px;
-}
-
-.set-box{
- background:var(--card2);
- border:1px solid var(--border);
- border-radius:17px;
- padding:17px;
- margin:15px 0;
-}
-
-.set-header{
- display:flex;
- justify-content:space-between;
- align-items:center;
-}
-
-.set-number{
- font-size:13px;
- color:var(--muted);
-}
-
-.set-status{
- color:var(--green);
- font-weight:800;
- font-size:12px;
-}
-
-.big-button{
- width:100%;
- padding:17px;
- border:none;
- border-radius:15px;
- background:var(--green);
- color:#07120c;
- font-weight:900;
- margin-top:14px;
-}
-
-.big-button:disabled{
- opacity:.45;
- cursor:not-allowed;
-}
-
-.timer-box{
- text-align:center;
- padding:20px 0;
-}
-
-.timer-label{
- color:var(--muted);
- font-size:12px;
-}
-
-.timer-number{
- font-size:56px;
- font-weight:900;
- margin:8px 0;
-}
-
-.timer-buttons{
- display:flex;
- gap:9px;
-}
-
-.timer-buttons button{
- flex:1;
- padding:12px;
- border:1px solid var(--border);
- border-radius:12px;
- background:var(--card2);
- color:white;
-}
-
-.form-group{margin-bottom:14px}
 
 .form-group label{
- display:block;
- color:var(--muted);
- font-size:12px;
- margin-bottom:7px;
+  display:block;
+  font-size:13px;
+  color:#aab4bf;
+  margin-bottom:6px;
 }
 
-.form-group input,
-.form-group select{
- width:100%;
- padding:14px;
- border:1px solid var(--border);
- border-radius:13px;
- background:#0e1117;
- color:white;
- outline:none;
+input,select{
+  width:100%;
+  background:#0d141b;
+  border:1px solid #293540;
+  color:white;
+  border-radius:10px;
+  padding:12px;
+  outline:none;
 }
 
-.form-group input:focus,
-.form-group select:focus{
- border-color:var(--accent);
+input:focus,select:focus{
+  border-color:#2d7ff9;
 }
 
-.chat{
- min-height:320px;
- max-height:420px;
- overflow-y:auto;
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.78);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  padding:20px;
 }
 
-.message{
- max-width:85%;
- padding:13px 15px;
- border-radius:16px;
- margin-bottom:10px;
- font-size:14px;
- line-height:1.5;
+.modal.show{
+  display:flex;
 }
 
-.message.aven{background:var(--card2)}
-.message.user{
- background:var(--accent);
- margin-left:auto;
+.modal-box{
+  width:100%;
+  max-width:520px;
+  max-height:90vh;
+  overflow:auto;
+  background:#121923;
+  border:1px solid #29343f;
+  border-radius:20px;
+  padding:20px;
 }
 
-.chat-input{
- display:flex;
- gap:8px;
+.modal-box h2{
+  margin-bottom:18px;
 }
 
-.chat-input input{
- flex:1;
- min-width:0;
- padding:14px;
- border-radius:14px;
- border:1px solid var(--border);
- background:#0e1117;
- color:white;
- outline:none;
+.close{
+  float:right;
+  background:none;
+  border:0;
+  color:#aaa;
+  font-size:25px;
 }
 
-.chat-input button{
- width:52px;
- border:none;
- border-radius:14px;
- background:var(--accent);
- color:white;
+.exercise{
+  background:#101720;
+  border:1px solid #27313b;
+  padding:15px;
+  border-radius:15px;
+  margin-bottom:10px;
+}
+
+.exercise-name{
+  font-weight:800;
+}
+
+.exercise-info{
+  color:#9ba7b3;
+  font-size:13px;
+  margin-top:5px;
 }
 
 .history-item{
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:13px 0;
- border-bottom:1px solid var(--border);
+  padding:12px 0;
+  border-bottom:1px solid #242e38;
 }
 
-.history-item:last-child{border-bottom:none}
+.history-item:last-child{
+  border-bottom:0;
+}
 
 .empty{
- text-align:center;
- padding:35px 10px;
- color:var(--muted);
+  text-align:center;
+  padding:25px 10px;
+  color:#8f9aa7;
 }
 
-@media(min-width:700px){
- .grid{grid-template-columns:repeat(4,1fr)}
- .modal{align-items:center}
- .modal-content{border-radius:25px}
+nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:#111720;
+  border-top:1px solid #252f39;
+  display:flex;
+  justify-content:center;
+  z-index:20;
+}
+
+.nav-inner{
+  width:100%;
+  max-width:900px;
+  display:flex;
+}
+
+.nav-btn{
+  flex:1;
+  background:none;
+  border:0;
+  color:#7f8b98;
+  font-size:11px;
+}
+
+.nav-btn.active{
+  color:#fff;
+}
+
+.nav-icon{
+  display:block;
+  font-size:20px;
+  margin-bottom:3px;
+}
+
+@media(max-width:600px){
+  main{padding:14px}
+  .grid{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -491,264 +364,358 @@ main{padding:0 18px}
 <div class="app">
 
 <header>
- <div class="logo">JEHU'S <span>HOME WORKOUT</span></div>
- <button class="secondary" onclick="showScreen('settings')">⚙</button>
+  <div class="brand">Jehu's Home Workout</div>
+  <div class="subtitle">Build stronger. Track everything. Stay consistent.</div>
 </header>
 
 <main>
 
 <!-- HOME -->
+<section id="home" class="section active">
 
-<section id="home" class="screen active">
-
- <div class="hero">
-  <small id="welcome">WELCOME BACK</small>
-  <h1 id="homeName">Jehu</h1>
-  <p id="homeMessage">
-   Your programme is ready. Train consistently and build progressively.
-  </p>
-
-  <button class="primary" onclick="startWorkout(todayWorkout())">
-   ▶ Start Today's Session
-  </button>
- </div>
-
- <div class="grid">
-
-  <div class="stat">
-   <div class="stat-label">HEIGHT</div>
-   <div class="stat-value" id="heightStat">—</div>
+  <div class="hero">
+    <h1 id="greeting">Welcome, Jehu</h1>
+    <p id="homeMessage">Your progress starts with consistency.</p>
   </div>
 
-  <div class="stat">
-   <div class="stat-label">WEIGHT</div>
-   <div class="stat-value" id="weightStat">—</div>
+  <div class="grid">
+    <div class="stat">
+      <div class="label">Weight</div>
+      <div class="value" id="homeWeight">—</div>
+    </div>
+
+    <div class="stat">
+      <div class="label">Height</div>
+      <div class="value" id="homeHeight">—</div>
+    </div>
+
+    <div class="stat">
+      <div class="label">Primary Goal</div>
+      <div class="value" id="homeGoal">—</div>
+    </div>
+
+    <div class="stat">
+      <div class="label">Workouts Completed</div>
+      <div class="value" id="homeWorkouts">0</div>
+    </div>
   </div>
 
-  <div class="stat">
-   <div class="stat-label">WORKOUTS</div>
-   <div class="stat-value" id="workoutStat">0</div>
+  <div class="card">
+    <h2>Primary Goal Progress</h2>
+    <div id="homeGoalProgress"></div>
   </div>
 
-  <div class="stat">
-   <div class="stat-label">PRIMARY GOAL</div>
-   <div class="stat-value" id="goalStat">—</div>
+  <div class="card">
+    <h2>Quick Actions</h2>
+    <div class="row">
+      <button class="btn" onclick="showSection('workouts')">Start Workout</button>
+      <button class="btn secondary" onclick="openMeasurementModal()">Update Measurement</button>
+    </div>
   </div>
-
- </div>
-
- <div class="section-title">
-  <h2>Today's Status</h2>
- </div>
-
- <div id="todayStatus"></div>
-
- <div class="section-title">
-  <h2>Weekly Programme</h2>
-  <span>3 training days</span>
- </div>
-
- <div id="homeWorkouts"></div>
-
- <div class="section-title">
-  <h2>Recent Activity</h2>
- </div>
-
- <div class="card" id="recentActivity"></div>
 
 </section>
 
 
 <!-- WORKOUTS -->
+<section id="workouts" class="section">
 
-<section id="workouts" class="screen">
+  <div class="hero">
+    <h1>Workouts</h1>
+    <p id="todayWorkoutText">Your training programme.</p>
+  </div>
 
- <div class="section-title">
-  <h2>My Workouts</h2>
-  <span>Choose a session</span>
- </div>
-
- <div id="workoutList"></div>
+  <div id="workoutList"></div>
 
 </section>
 
 
 <!-- GOALS -->
+<section id="goals" class="section">
 
-<section id="goals" class="screen">
+  <div class="hero">
+    <h1>My Goals</h1>
+    <p>Set targets and monitor your progress.</p>
+  </div>
 
- <div class="section-title">
-  <h2>Goals</h2>
-  <button class="secondary" onclick="addGoal()">＋ Add</button>
- </div>
+  <button class="btn full" onclick="openGoalModal()">＋ Add New Goal</button>
 
- <div id="goalList"></div>
+  <div style="height:14px"></div>
+
+  <div id="goalsList"></div>
+
+</section>
+
+
+<!-- PROGRESS -->
+<section id="progress" class="section">
+
+  <div class="hero">
+    <h1>Progress</h1>
+    <p>Your measurements and performance over time.</p>
+  </div>
+
+  <div class="card">
+    <h2>Current Measurements</h2>
+    <div id="measurementGrid" class="grid"></div>
+
+    <div style="height:12px"></div>
+
+    <button class="btn full" onclick="openMeasurementModal()">
+      ＋ Record Measurement
+    </button>
+  </div>
+
+  <div class="card">
+    <h2>Personal Records</h2>
+    <div id="recordsList"></div>
+  </div>
+
+  <div class="card">
+    <h2>Measurement History</h2>
+    <div id="measurementHistory"></div>
+  </div>
 
 </section>
 
 
 <!-- EXERCISES -->
+<section id="exercises" class="section">
 
-<section id="exercises" class="screen">
+  <div class="hero">
+    <h1>Exercise Library</h1>
+    <p>Learn the exercises used in your programme.</p>
+  </div>
 
- <div class="section-title">
-  <h2>Exercises</h2>
-  <span id="exerciseCount"></span>
- </div>
-
- <input
-  id="exerciseSearch"
-  placeholder="Search exercises..."
-  oninput="renderExercises()"
-  style="width:100%;padding:14px;border-radius:13px;border:1px solid var(--border);background:#0e1117;color:white;outline:none;"
- >
-
- <div id="exerciseList"></div>
+  <div id="exerciseList"></div>
 
 </section>
 
 
 <!-- AVEN -->
+<section id="aven" class="section">
 
-<section id="aven" class="screen">
-
- <div class="section-title">
-  <h2>Aven</h2>
-  <span>Your coach</span>
- </div>
-
- <div class="card chat" id="chat">
-
-  <div class="message aven">
-   Hello Jehu. I'm Aven. Your workout system is ready. Ask me about your programme, exercises or goals.
+  <div class="hero">
+    <h1>Ask Aven</h1>
+    <p>Your workout assistant.</p>
   </div>
 
- </div>
+  <div class="card">
+    <h2>What can Aven do?</h2>
+    <p class="muted">
+      The full Aven connection will be added later. For now, this section
+      prepares the app for workout, goal and progress commands.
+    </p>
 
- <div class="chat-input">
-  <input
-   id="avenInput"
-   placeholder="Talk to Aven..."
-   autocomplete="off"
-   onkeydown="if(event.key==='Enter')sendAven()"
-  >
-  <button onclick="sendAven()">➤</button>
- </div>
+    <div style="height:15px"></div>
+
+    <div class="exercise">
+      <div class="exercise-name">Example commands</div>
+      <div class="exercise-info">
+        "Update my arm measurement"<br>
+        "Make Saturday harder"<br>
+        "What is my primary goal?"<br>
+        "How much have I progressed?"
+      </div>
+    </div>
+  </div>
 
 </section>
 
 
 <!-- SETTINGS -->
+<section id="settings" class="section">
 
-<section id="settings" class="screen">
-
- <div class="section-title">
-  <h2>Profile</h2>
- </div>
-
- <div class="card">
-
-  <div class="form-group">
-   <label>Name</label>
-   <input id="nameInput" type="text">
+  <div class="hero">
+    <h1>Settings</h1>
+    <p>Manage your profile and app data.</p>
   </div>
 
-  <div class="form-group">
-   <label>Age</label>
-   <input id="ageInput" type="number">
+  <div class="card">
+    <h2>Profile</h2>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input id="profileName" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Age</label>
+      <input id="profileAge" type="number">
+    </div>
+
+    <button class="btn" onclick="saveProfile()">Save Profile</button>
   </div>
 
-  <div class="form-group">
-   <label>Height (cm)</label>
-   <input id="heightInput" type="number">
+  <div class="card">
+    <h2>Data</h2>
+    <button class="btn danger" onclick="resetApp()">Reset All App Data</button>
   </div>
-
-  <div class="form-group">
-   <label>Weight (kg)</label>
-   <input id="weightInput" type="number" step="0.1">
-  </div>
-
-  <div class="form-group">
-   <label>Experience</label>
-   <select id="experienceInput">
-    <option value="">Select</option>
-    <option>Beginner</option>
-    <option>Intermediate</option>
-    <option>Advanced</option>
-  </select>
-  </div>
-
-  <button class="primary" onclick="saveProfile()">
-   Save Profile
-  </button>
-
- </div>
-
- <div class="section-title">
-  <h2>Workout History</h2>
- </div>
-
- <div class="card" id="history"></div>
 
 </section>
 
 </main>
+</div>
 
 
-<!-- NAV -->
+<!-- GOAL MODAL -->
+<div id="goalModal" class="modal">
 
-<nav class="bottom-nav">
+  <div class="modal-box">
 
- <button class="nav-btn active" data-screen="home" onclick="showScreen('home')">
-  <span class="nav-icon">⌂</span>
-  Home
- </button>
+    <button class="close" onclick="closeGoalModal()">×</button>
 
- <button class="nav-btn" data-screen="workouts" onclick="showScreen('workouts')">
-  <span class="nav-icon">🏋</span>
-  Workouts
- </button>
+    <h2>Add Goal</h2>
 
- <button class="nav-btn" data-screen="goals" onclick="showScreen('goals')">
-  <span class="nav-icon">🎯</span>
-  Goals
- </button>
+    <div class="form-group">
+      <label>Goal type</label>
+      <select id="goalType" onchange="updateGoalFields()">
 
- <button class="nav-btn" data-screen="exercises" onclick="showScreen('exercises')">
-  <span class="nav-icon">💪</span>
-  Exercises
- </button>
+        <option value="arms">Arms</option>
+        <option value="chest">Chest</option>
+        <option value="abs">Abs / Core</option>
+        <option value="shoulders">Shoulders</option>
+        <option value="back">Back</option>
+        <option value="thighs">Thighs</option>
+        <option value="calves">Calves</option>
+        <option value="glutes">Glutes</option>
+        <option value="height">Height</option>
+        <option value="weight">Body Weight</option>
+        <option value="pushups">Push-ups</option>
+        <option value="plank">Plank</option>
+        <option value="fullbody">Full Body</option>
+        <option value="custom">Custom</option>
 
- <button class="nav-btn" data-screen="aven" onclick="showScreen('aven')">
-  <span class="nav-icon">✦</span>
-  Aven
- </button>
+      </select>
+    </div>
 
-</nav>
+    <div class="form-group" id="customNameGroup" style="display:none">
+      <label>Custom goal name</label>
+      <input id="customGoalName" type="text" placeholder="e.g. Pull-up strength">
+    </div>
 
+    <div class="form-group">
+      <label>Current value</label>
+      <input id="goalCurrent" type="number" step="0.1" placeholder="e.g. 30">
+    </div>
+
+    <div class="form-group">
+      <label>Target value</label>
+      <input id="goalTarget" type="number" step="0.1" placeholder="e.g. 35">
+    </div>
+
+    <div class="form-group">
+      <label>Unit</label>
+      <select id="goalUnit">
+        <option value="cm">cm</option>
+        <option value="kg">kg</option>
+        <option value="reps">reps</option>
+        <option value="seconds">seconds</option>
+        <option value="minutes">minutes</option>
+        <option value="">No unit</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Target date</label>
+      <input id="goalDate" type="date">
+    </div>
+
+    <div class="form-group">
+      <label>
+        <input id="goalPrimary" type="checkbox" style="width:auto;margin-right:7px">
+        Make this my primary goal
+      </label>
+    </div>
+
+    <button class="btn full" onclick="saveGoal()">Save Goal</button>
+
+  </div>
+</div>
+
+
+<!-- MEASUREMENT MODAL -->
+<div id="measurementModal" class="modal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeMeasurementModal()">×</button>
+
+    <h2>Record Measurement</h2>
+
+    <div class="form-group">
+      <label>Measurement</label>
+
+      <select id="measurementType">
+        <option value="weight">Body Weight</option>
+        <option value="height">Height</option>
+        <option value="arms">Arms</option>
+        <option value="chest">Chest</option>
+        <option value="waist">Waist</option>
+        <option value="thighs">Thighs</option>
+        <option value="calves">Calves</option>
+        <option value="pushups">Maximum Push-ups</option>
+        <option value="plank">Maximum Plank</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Value</label>
+      <input id="measurementValue" type="number" step="0.1" placeholder="Enter value">
+    </div>
+
+    <button class="btn full" onclick="saveMeasurement()">
+      Save Measurement
+    </button>
+
+  </div>
 </div>
 
 
 <!-- WORKOUT MODAL -->
+<div id="workoutModal" class="modal">
 
-<div class="modal" id="workoutModal">
+  <div class="modal-box">
 
- <div class="modal-content">
+    <button class="close" onclick="closeWorkout()">×</button>
 
-  <div class="modal-head">
-   <h2 id="sessionTitle">Workout</h2>
-   <button class="close" onclick="closeModal()">✕</button>
+    <h2 id="workoutTitle">Workout</h2>
+
+    <div id="workoutEngine"></div>
+
   </div>
+</div>
 
-  <div class="progress">
-   <div class="progress-fill" id="sessionProgress"></div>
-  </div>
 
-  <div id="sessionContent"></div>
+<nav>
 
- </div>
+<div class="nav-inner">
+
+<button class="nav-btn active" onclick="showSection('home',this)">
+  <span class="nav-icon">⌂</span>Home
+</button>
+
+<button class="nav-btn" onclick="showSection('workouts',this)">
+  <span class="nav-icon">🔥</span>Workouts
+</button>
+
+<button class="nav-btn" onclick="showSection('goals',this)">
+  <span class="nav-icon">🎯</span>Goals
+</button>
+
+<button class="nav-btn" onclick="showSection('progress',this)">
+  <span class="nav-icon">📈</span>Progress
+</button>
+
+<button class="nav-btn" onclick="showSection('exercises',this)">
+  <span class="nav-icon">💪</span>Exercises
+</button>
+
+<button class="nav-btn" onclick="showSection('aven',this)">
+  <span class="nav-icon">🤖</span>Aven
+</button>
 
 </div>
+</nav>
 
 
 <script>
@@ -757,189 +724,91 @@ main{padding:0 18px}
    DATA
 ========================= */
 
-const workouts={
+const defaultData = {
 
- monday:{
-  day:"Monday",
-  title:"Chest + Arms + Abs",
-  description:"Chest pressing, arm work and abdominal training.",
-  exercises:[
-   ["Standard Push-up",3,"8–15"],
-   ["Wide Push-up",3,"8–15"],
-   ["Diamond Push-up",3,"6–12"],
-   ["Self-Resisted Biceps Curl",3,"10–15"],
-   ["Triceps Extension",3,"10–15"],
-   ["Crunch",3,"15–20"],
-   ["Plank",3,"30–60 sec"]
-  ]
- },
+  profile:{
+    name:"Jehu",
+    age:"",
+    height:"",
+    weight:"",
+    experience:"Beginner"
+  },
 
- wednesday:{
-  day:"Wednesday",
-  title:"Back + Shoulders + Arms + Abs",
-  description:"Upper-back, shoulder, arm and core training.",
-  exercises:[
-   ["Superman",3,"12–15"],
-   ["Reverse Snow Angel",3,"10–15"],
-   ["Pike Push-up",3,"6–12"],
-   ["Self-Resisted Biceps Curl",3,"10–15"],
-   ["Triceps Extension",3,"10–15"],
-   ["Reverse Crunch",3,"12–20"],
-   ["Leg Raise",3,"8–15"]
-  ]
- },
+  goals:[],
 
- saturday:{
-  day:"Saturday",
-  title:"Full Body + Arms + Core",
-  description:"Your main full-body session of the week.",
-  exercises:[
-   ["Bodyweight Squat",3,"12–20"],
-   ["Reverse Lunge",3,"8–12 each leg"],
-   ["Standard Push-up",3,"8–15"],
-   ["Pike Push-up",3,"6–12"],
-   ["Glute Bridge",3,"12–20"],
-   ["Calf Raise",4,"15–25"],
-   ["Self-Resisted Biceps Curl",3,"10–15"],
-   ["Plank",3,"30–60 sec"]
-  ]
- }
+  measurements:[],
 
+  records:{
+    pushups:0,
+    plank:0
+  },
+
+  completedWorkouts:0,
+
+  history:[]
 };
 
 
-const exerciseInfo={
-
- "Standard Push-up":{
-  category:"Chest",
-  muscles:"Chest · Triceps · Shoulders",
-  instructions:"Keep your body straight. Lower your chest under control, then push the floor away."
- },
-
- "Wide Push-up":{
-  category:"Chest",
-  muscles:"Chest · Shoulders · Triceps",
-  instructions:"Place your hands wider than shoulder width and lower your chest under control."
- },
-
- "Diamond Push-up":{
-  category:"Arms",
-  muscles:"Triceps · Chest · Shoulders",
-  instructions:"Keep your hands close together beneath your chest and perform a controlled push-up."
- },
-
- "Pike Push-up":{
-  category:"Shoulders",
-  muscles:"Shoulders · Triceps · Upper chest",
-  instructions:"Raise your hips into an inverted V and lower your head towards the floor."
- },
-
- "Bodyweight Squat":{
-  category:"Legs",
-  muscles:"Quadriceps · Glutes · Core",
-  instructions:"Sit your hips back, bend your knees and stand by driving through your feet."
- },
-
- "Reverse Lunge":{
-  category:"Legs",
-  muscles:"Quadriceps · Glutes",
-  instructions:"Step backwards, lower under control and push through the front foot to return."
- },
-
- "Glute Bridge":{
-  category:"Glutes",
-  muscles:"Glutes · Hamstrings",
-  instructions:"Drive your hips upward and squeeze the glutes at the top."
- },
-
- "Calf Raise":{
-  category:"Calves",
-  muscles:"Calves",
-  instructions:"Rise onto the balls of your feet, pause briefly and lower slowly."
- },
-
- "Crunch":{
-  category:"Abs",
-  muscles:"Abdominals",
-  instructions:"Curl your upper body towards your knees without pulling your neck."
- },
-
- "Reverse Crunch":{
-  category:"Abs",
-  muscles:"Lower abdominals",
-  instructions:"Bring your knees towards your chest and curl your pelvis upward."
- },
-
- "Leg Raise":{
-  category:"Abs",
-  muscles:"Abdominals · Hip flexors",
-  instructions:"Raise your legs under control and lower them slowly."
- },
-
- "Plank":{
-  category:"Core",
-  muscles:"Abdominals · Shoulders · Glutes",
-  instructions:"Keep your body in a straight line and brace your abdomen."
- },
-
- "Superman":{
-  category:"Back",
-  muscles:"Lower back · Glutes · Shoulders",
-  instructions:"Lie face down and raise your arms and legs slightly from the floor."
- },
-
- "Reverse Snow Angel":{
-  category:"Back",
-  muscles:"Upper back · Rear shoulders",
-  instructions:"Lie face down and slowly sweep your arms from overhead towards your sides."
- },
-
- "Self-Resisted Biceps Curl":{
-  category:"Arms",
-  muscles:"Biceps",
-  instructions:"Use one arm to resist the other as it performs a controlled curl."
- },
-
- "Triceps Extension":{
-  category:"Arms",
-  muscles:"Triceps",
-  instructions:"Use your opposite hand to provide resistance while extending the working arm."
- }
-
-};
+let data = JSON.parse(
+  localStorage.getItem("jehuWorkoutData")
+) || defaultData;
 
 
 /* =========================
-   SAVED DATA
+   HELPERS
 ========================= */
-
-let data=JSON.parse(
- localStorage.getItem("jehuWorkoutData")
-)||{
-
- profile:{
-  name:"Jehu",
-  age:"",
-  height:"",
-  weight:"",
-  experience:""
- },
-
- goals:[],
-
- completedWorkouts:0,
-
- history:[]
-
-};
-
 
 function saveData(){
 
- localStorage.setItem(
-  "jehuWorkoutData",
-  JSON.stringify(data)
- );
+  localStorage.setItem(
+    "jehuWorkoutData",
+    JSON.stringify(data)
+  );
+
+}
+
+
+function labelFor(type){
+
+  const labels = {
+
+    arms:"Arms",
+    chest:"Chest",
+    abs:"Abs / Core",
+    shoulders:"Shoulders",
+    back:"Back",
+    thighs:"Thighs",
+    calves:"Calves",
+    glutes:"Glutes",
+    height:"Height",
+    weight:"Body Weight",
+    pushups:"Push-ups",
+    plank:"Plank",
+    waist:"Waist",
+    fullbody:"Full Body"
+
+  };
+
+  return labels[type] || type;
+
+}
+
+
+function unitFor(type){
+
+  if(type==="weight") return "kg";
+
+  if(type==="height") return "cm";
+
+  if(
+    ["arms","chest","waist","thighs","calves"].includes(type)
+  ) return "cm";
+
+  if(type==="pushups") return "reps";
+
+  if(type==="plank") return "seconds";
+
+  return "";
 
 }
 
@@ -948,46 +817,642 @@ function saveData(){
    NAVIGATION
 ========================= */
 
-function showScreen(id){
+function showSection(id,button){
 
- document.querySelectorAll(".screen")
-  .forEach(s=>s.classList.remove("active"));
+  document
+    .querySelectorAll(".section")
+    .forEach(s=>s.classList.remove("active"));
 
- document.getElementById(id)
-  .classList.add("active");
+  document
+    .getElementById(id)
+    .classList.add("active");
 
- document.querySelectorAll(".nav-btn")
-  .forEach(btn=>{
-   btn.classList.toggle(
-    "active",
-    btn.dataset.screen===id
-   );
-  });
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(b=>b.classList.remove("active"));
 
- if(id==="home")renderHome();
- if(id==="workouts")renderWorkouts();
- if(id==="goals")renderGoals();
- if(id==="exercises")renderExercises();
- if(id==="settings")renderSettings();
+  if(button) button.classList.add("active");
 
- window.scrollTo(0,0);
+  if(id==="home") renderHome();
+
+  if(id==="goals") renderGoals();
+
+  if(id==="progress") renderProgress();
+
+  if(id==="workouts") renderWorkouts();
 
 }
 
 
 /* =========================
-   DATE
+   GOALS
 ========================= */
 
-function todayWorkout(){
+function openGoalModal(){
 
- const day=new Date().getDay();
+  document
+    .getElementById("goalModal")
+    .classList.add("show");
 
- if(day===1)return"monday";
- if(day===3)return"wednesday";
- if(day===6)return"saturday";
+  updateGoalFields();
 
- return null;
+}
+
+
+function closeGoalModal(){
+
+  document
+    .getElementById("goalModal")
+    .classList.remove("show");
+
+}
+
+
+function updateGoalFields(){
+
+  const type =
+    document.getElementById("goalType").value;
+
+  document.getElementById("goalUnit").value =
+    unitFor(type);
+
+  document.getElementById("customNameGroup").style.display =
+    type==="custom" ? "block" : "none";
+
+}
+
+
+function saveGoal(){
+
+  const type =
+    document.getElementById("goalType").value;
+
+  const current =
+    parseFloat(document.getElementById("goalCurrent").value);
+
+  const target =
+    parseFloat(document.getElementById("goalTarget").value);
+
+  const unit =
+    document.getElementById("goalUnit").value;
+
+  const date =
+    document.getElementById("goalDate").value;
+
+  const primary =
+    document.getElementById("goalPrimary").checked;
+
+  if(isNaN(current) || isNaN(target)){
+
+    alert("Please enter both current and target values.");
+
+    return;
+
+  }
+
+  if(type==="custom" &&
+     !document.getElementById("customGoalName").value.trim()){
+
+    alert("Please enter a name for your custom goal.");
+
+    return;
+
+  }
+
+  if(primary){
+
+    data.goals.forEach(g=>g.primary=false);
+
+  }
+
+  if(data.goals.length===0){
+
+    data.goals.forEach(g=>g.primary=false);
+
+  }
+
+  const goal = {
+
+    id:Date.now(),
+
+    type:type,
+
+    name:type==="custom"
+      ? document.getElementById("customGoalName").value.trim()
+      : labelFor(type),
+
+    current:current,
+
+    target:target,
+
+    unit:unit,
+
+    date:date,
+
+    primary:primary || data.goals.length===0,
+
+    created:new Date().toISOString()
+
+  };
+
+  data.goals.push(goal);
+
+  saveData();
+
+  closeGoalModal();
+
+  renderGoals();
+
+  renderHome();
+
+  clearGoalForm();
+
+}
+
+
+function clearGoalForm(){
+
+  document.getElementById("goalCurrent").value="";
+
+  document.getElementById("goalTarget").value="";
+
+  document.getElementById("goalDate").value="";
+
+  document.getElementById("goalPrimary").checked=false;
+
+  document.getElementById("customGoalName").value="";
+
+}
+
+
+function calculateProgress(goal){
+
+  const start = parseFloat(goal.current);
+
+  const target = parseFloat(goal.target);
+
+  const latest = latestMeasurement(goal.type);
+
+  const current =
+    latest !== null ? latest : start;
+
+  if(start===target) return 100;
+
+  let percentage;
+
+  /*
+    For normal increasing goals:
+    start -> target
+  */
+
+  if(target > start){
+
+    percentage =
+      ((current-start)/(target-start))*100;
+
+  }else{
+
+    /*
+      For goals where a lower value is desired,
+      such as reducing waist.
+    */
+
+    percentage =
+      ((start-current)/(start-target))*100;
+
+  }
+
+  return Math.max(0,Math.min(100,percentage));
+
+}
+
+
+function latestMeasurement(type){
+
+  const entries =
+    data.measurements
+      .filter(m=>m.type===type)
+      .sort((a,b)=>
+        new Date(b.date)-new Date(a.date)
+      );
+
+  if(!entries.length) return null;
+
+  return parseFloat(entries[0].value);
+
+}
+
+
+function makePrimary(id){
+
+  data.goals.forEach(g=>{
+    g.primary = g.id===id;
+  });
+
+  saveData();
+
+  renderGoals();
+
+  renderHome();
+
+}
+
+
+function deleteGoal(id){
+
+  if(!confirm("Delete this goal?")) return;
+
+  data.goals =
+    data.goals.filter(g=>g.id!==id);
+
+  if(data.goals.length &&
+     !data.goals.some(g=>g.primary)){
+
+    data.goals[0].primary=true;
+
+  }
+
+  saveData();
+
+  renderGoals();
+
+  renderHome();
+
+}
+
+
+function renderGoals(){
+
+  const box =
+    document.getElementById("goalsList");
+
+  if(!data.goals.length){
+
+    box.innerHTML = `
+      <div class="card empty">
+        You have not created any goals yet.
+      </div>
+    `;
+
+    return;
+
+  }
+
+  box.innerHTML =
+    data.goals.map(goal=>{
+
+      const progress =
+        calculateProgress(goal);
+
+      const current =
+        latestMeasurement(goal.type) ??
+        goal.current;
+
+      return `
+
+        <div class="goal ${goal.primary ? "primary":""}">
+
+          <div class="goal-top">
+
+            <div>
+
+              <div class="goal-name">
+
+                ${goal.name}
+
+                ${
+                  goal.primary
+                  ? `<span class="badge">PRIMARY</span>`
+                  : ""
+                }
+
+              </div>
+
+              <div class="goal-meta">
+
+                ${current} ${goal.unit || ""}
+                →
+                ${goal.target} ${goal.unit || ""}
+
+              </div>
+
+            </div>
+
+            <strong>${Math.round(progress)}%</strong>
+
+          </div>
+
+          <div class="progress">
+
+            <div
+              class="progress-bar"
+              style="width:${progress}%">
+            </div>
+
+          </div>
+
+          <div class="progress-text">
+
+            ${Math.round(progress)}% complete
+
+          </div>
+
+          ${
+            goal.date
+            ? `<div class="goal-meta">
+                Target date: ${formatDate(goal.date)}
+              </div>`
+            : ""
+          }
+
+          <div class="goal-actions row">
+
+            ${
+              !goal.primary
+              ? `<button
+                  class="btn small"
+                  onclick="makePrimary(${goal.id})">
+                  Make Primary
+                </button>`
+              : ""
+            }
+
+            <button
+              class="btn secondary small"
+              onclick="openMeasurementModal('${goal.type}')">
+              Update
+            </button>
+
+            <button
+              class="btn danger small"
+              onclick="deleteGoal(${goal.id})">
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* =========================
+   MEASUREMENTS
+========================= */
+
+function openMeasurementModal(type){
+
+  document
+    .getElementById("measurementModal")
+    .classList.add("show");
+
+  if(type){
+
+    document.getElementById("measurementType").value=type;
+
+  }
+
+}
+
+
+function closeMeasurementModal(){
+
+  document
+    .getElementById("measurementModal")
+    .classList.remove("show");
+
+}
+
+
+function saveMeasurement(){
+
+  const type =
+    document.getElementById("measurementType").value;
+
+  const value =
+    parseFloat(
+      document.getElementById("measurementValue").value
+    );
+
+  if(isNaN(value)){
+
+    alert("Please enter a valid measurement.");
+
+    return;
+
+  }
+
+  const entry = {
+
+    type:type,
+
+    value:value,
+
+    unit:unitFor(type),
+
+    date:new Date().toISOString()
+
+  };
+
+  data.measurements.push(entry);
+
+  /*
+    Keep profile weight and height synchronized.
+  */
+
+  if(type==="weight"){
+
+    data.profile.weight=value;
+
+  }
+
+  if(type==="height"){
+
+    data.profile.height=value;
+
+  }
+
+  /*
+    Update performance records.
+  */
+
+  if(type==="pushups"){
+
+    if(value > (data.records.pushups || 0)){
+
+      data.records.pushups=value;
+
+    }
+
+  }
+
+  if(type==="plank"){
+
+    if(value > (data.records.plank || 0)){
+
+      data.records.plank=value;
+
+    }
+
+  }
+
+  /*
+    Update matching goals automatically.
+  */
+
+  data.goals.forEach(goal=>{
+
+    if(goal.type===type){
+
+      /*
+        The original current value remains the baseline.
+        The latest measurement becomes the current progress.
+      */
+
+      goal.lastUpdated=new Date().toISOString();
+
+    }
+
+  });
+
+  saveData();
+
+  document.getElementById("measurementValue").value="";
+
+  closeMeasurementModal();
+
+  renderHome();
+
+  renderGoals();
+
+  renderProgress();
+
+}
+
+
+function renderProgress(){
+
+  const types = [
+    "weight",
+    "height",
+    "arms",
+    "chest",
+    "waist",
+    "thighs",
+    "calves",
+    "pushups",
+    "plank"
+  ];
+
+  const grid =
+    document.getElementById("measurementGrid");
+
+  grid.innerHTML =
+    types.map(type=>{
+
+      const latest =
+        latestMeasurement(type);
+
+      return `
+
+        <div class="stat">
+
+          <div class="label">
+            ${labelFor(type)}
+          </div>
+
+          <div class="value">
+
+            ${
+              latest !== null
+              ? latest + " " + unitFor(type)
+              : "—"
+            }
+
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+
+  renderRecords();
+
+  renderMeasurementHistory();
+
+}
+
+
+function renderRecords(){
+
+  const box =
+    document.getElementById("recordsList");
+
+  box.innerHTML = `
+
+    <div class="history-item">
+      <strong>Maximum Push-ups:</strong>
+      ${data.records.pushups || 0} reps
+    </div>
+
+    <div class="history-item">
+      <strong>Maximum Plank:</strong>
+      ${formatSeconds(data.records.plank || 0)}
+    </div>
+
+  `;
+
+}
+
+
+function renderMeasurementHistory(){
+
+  const box =
+    document.getElementById("measurementHistory");
+
+  const history =
+    [...data.measurements]
+      .sort((a,b)=>
+        new Date(b.date)-new Date(a.date)
+      );
+
+  if(!history.length){
+
+    box.innerHTML =
+      `<div class="empty">
+        No measurements recorded yet.
+      </div>`;
+
+    return;
+
+  }
+
+  box.innerHTML =
+    history.map(item=>`
+
+      <div class="history-item">
+
+        <strong>${labelFor(item.type)}</strong>
+
+        <div class="muted">
+
+          ${item.value} ${item.unit || ""}
+
+          ·
+
+          ${formatDateTime(item.date)}
+
+        </div>
+
+      </div>
+
+    `).join("");
 
 }
 
@@ -998,791 +1463,65 @@ function todayWorkout(){
 
 function renderHome(){
 
- const p=data.profile;
+  document.getElementById("greeting").textContent =
+    `Welcome, ${data.profile.name || "Jehu"}`;
 
- document.getElementById("homeName")
-  .textContent=p.name||"Jehu";
+  document.getElementById("homeWeight").textContent =
+    data.profile.weight
+      ? `${data.profile.weight} kg`
+      : "—";
 
- document.getElementById("heightStat")
-  .textContent=p.height?p.height+" cm":"—";
+  document.getElementById("homeHeight").textContent =
+    data.profile.height
+      ? `${data.profile.height} cm`
+      : "—";
 
- document.getElementById("weightStat")
-  .textContent=p.weight?p.weight+" kg":"—";
+  document.getElementById("homeWorkouts").textContent =
+    data.completedWorkouts || 0;
 
- document.getElementById("workoutStat")
-  .textContent=data.completedWorkouts;
+  const primary =
+    data.goals.find(g=>g.primary);
 
- const primary=data.goals.find(g=>g.primary);
+  document.getElementById("homeGoal").textContent =
+    primary ? primary.name : "None";
 
- document.getElementById("goalStat")
-  .textContent=primary?primary.type:"—";
+  const box =
+    document.getElementById("homeGoalProgress");
 
+  if(!primary){
 
- const today=todayWorkout();
+    box.innerHTML =
+      `<p class="muted">
+        Create a goal to begin tracking your progress.
+      </p>`;
 
- if(today){
-
-  const w=workouts[today];
-
-  document.getElementById("todayStatus").innerHTML=`
-
-   <div class="card workout-card">
-
-    <span class="badge">TODAY</span>
-
-    <h3>${w.title}</h3>
-
-    <p class="muted">
-     ${w.description}
-    </p>
-
-    <button
-     class="primary"
-     onclick="startWorkout('${today}')">
-     Start Today's Workout
-    </button>
-
-   </div>
-
-  `;
-
- }else{
-
-  document.getElementById("todayStatus").innerHTML=`
-
-   <div class="card">
-
-    <span class="badge">RECOVERY DAY</span>
-
-    <h3>Recover and prepare</h3>
-
-    <p class="muted">
-     Today is not a scheduled training day.
-     Your next session is shown in the weekly programme.
-    </p>
-
-   </div>
-
-  `;
-
- }
-
-
- document.getElementById("homeWorkouts").innerHTML=
-  Object.entries(workouts).map(([id,w])=>`
-
-   <div class="card workout-card">
-
-    <span class="badge">${w.day}</span>
-
-    <h3>${w.title}</h3>
-
-    <p class="muted">
-     ${w.exercises.length} exercises
-    </p>
-
-    <button
-     class="primary"
-     onclick="startWorkout('${id}')">
-     Open Workout
-    </button>
-
-   </div>
-
-  `).join("");
-
-
- renderRecentActivity();
-
-}
-
-
-function renderRecentActivity(){
-
- const box=document.getElementById("recentActivity");
-
- if(data.history.length===0){
-
-  box.innerHTML=`
-   <div class="empty">
-    No workouts completed yet.
-   </div>
-  `;
-
-  return;
-
- }
-
- const recent=[...data.history]
-  .reverse()
-  .slice(0,3);
-
- box.innerHTML=recent.map(h=>{
-
-  const w=workouts[h.workout];
-
-  return`
-
-   <div class="history-item">
-
-    <div>
-     <strong>${w?w.title:h.workout}</strong>
-     <div class="muted">
-      ${new Date(h.date).toLocaleDateString()}
-     </div>
-    </div>
-
-    <span>✓</span>
-
-   </div>
-
-  `;
-
- }).join("");
-
-}
-
-
-/* =========================
-   WORKOUT LIST
-========================= */
-
-function renderWorkouts(){
-
- document.getElementById("workoutList").innerHTML=
-  Object.entries(workouts).map(([id,w])=>`
-
-   <div class="card workout-card">
-
-    <span class="badge">${w.day}</span>
-
-    <h3>${w.title}</h3>
-
-    <p class="muted">
-     ${w.description}
-    </p>
-
-    <div style="margin-top:12px">
-
-     ${w.exercises.map((e,i)=>`
-
-      <div class="exercise-row">
-
-       <div class="exercise-info">
-        <strong>${i+1}. ${e[0]}</strong>
-        <span>
-         ${e[1]} sets · ${e[2]}
-        </span>
-       </div>
-
-      </div>
-
-     `).join("")}
-
-    </div>
-
-    <button
-     class="primary"
-     onclick="startWorkout('${id}')">
-     ▶ Start This Workout
-    </button>
-
-   </div>
-
-  `).join("");
-
-}
-
-
-/* =========================
-   WORKOUT ENGINE
-========================= */
-
-let session={
- workout:null,
- exerciseIndex:0,
- setIndex:0,
- completedSets:0,
- totalSets:0
-};
-
-
-let restSeconds=60;
-let restInterval=null;
-
-
-function startWorkout(id){
-
- const w=workouts[id];
-
- if(!w)return;
-
- session={
-  workout:id,
-  exerciseIndex:0,
-  setIndex:0,
-  completedSets:0,
-  totalSets:w.exercises.reduce(
-   (sum,e)=>sum+e[1],0
-  )
- };
-
- document.getElementById("sessionTitle")
-  .textContent=w.title;
-
- document.getElementById("workoutModal")
-  .classList.add("show");
-
- renderSession();
-
-}
-
-
-function renderSession(){
-
- const w=workouts[session.workout];
-
- const ex=w.exercises[session.exerciseIndex];
-
- const name=ex[0];
- const totalSets=ex[1];
- const target=ex[2];
-
- const progress=
-  (session.completedSets/session.totalSets)*100;
-
- document.getElementById("sessionProgress")
-  .style.width=progress+"%";
-
-
- document.getElementById("sessionContent").innerHTML=`
-
-  <div class="active-exercise">
-
-   <div class="number">
-    EXERCISE ${session.exerciseIndex+1}
-    OF ${w.exercises.length}
-   </div>
-
-   <h2>${name}</h2>
-
-   <div class="target">
-    ${totalSets} sets · ${target}
-   </div>
-
-  </div>
-
-
-  <div class="video-placeholder">
-
-   <div class="play-circle">▶</div>
-
-   <span>
-    Video demonstration will be added later
-   </span>
-
-  </div>
-
-
-  <div class="set-box">
-
-   <div class="set-header">
-
-    <div class="set-number">
-     SET ${session.setIndex+1} OF ${totalSets}
-    </div>
-
-    <div class="set-status">
-     ${session.setIndex>=totalSets?"DONE":"READY"}
-    </div>
-
-   </div>
-
-   <button
-    class="big-button"
-    ${session.setIndex>=totalSets?"disabled":""}
-    onclick="completeSet()">
-
-    ✓ Complete Set
-
-   </button>
-
-  </div>
-
-
-  <div class="timer-box">
-
-   <div class="timer-label">
-    REST TIMER
-   </div>
-
-   <div
-    class="timer-number"
-    id="restNumber">
-    ${restSeconds}
-   </div>
-
-   <div class="timer-buttons">
-
-    <button onclick="startRest()">Start Rest</button>
-
-    <button onclick="resetRest()">Reset</button>
-
-   </div>
-
-  </div>
-
-
-  <div style="display:flex;gap:8px">
-
-   <button
-    class="secondary"
-    style="flex:1"
-    onclick="skipExercise()">
-
-    Skip Exercise
-
-   </button>
-
-   <button
-    class="secondary"
-    style="flex:1"
-    onclick="nextExercise()">
-
-    Next Exercise →
-
-   </button>
-
-  </div>
-
- `;
-
-}
-
-
-function completeSet(){
-
- const w=workouts[session.workout];
-
- const ex=w.exercises[session.exerciseIndex];
-
- if(session.setIndex>=ex[1])return;
-
- session.setIndex++;
-
- session.completedSets++;
-
- resetRest();
-
- if(session.setIndex>=ex[1]){
-
-  setTimeout(()=>{
-
-   if(session.exerciseIndex<w.exercises.length-1){
-
-    session.exerciseIndex++;
-    session.setIndex=0;
-
-    renderSession();
-
-   }else{
-
-    finishWorkout();
-
-   }
-
-  },400);
-
- }else{
-
-  renderSession();
-
-  startRest();
-
- }
-
-}
-
-
-function nextExercise(){
-
- const w=workouts[session.workout];
-
- if(session.exerciseIndex<
-    w.exercises.length-1){
-
-  session.exerciseIndex++;
-  session.setIndex=0;
-
-  renderSession();
-
- }
-
-}
-
-
-function skipExercise(){
-
- const w=workouts[session.workout];
-
- if(session.exerciseIndex<
-    w.exercises.length-1){
-
-  session.exerciseIndex++;
-  session.setIndex=0;
-
-  renderSession();
-
- }else{
-
-  finishWorkout();
-
- }
-
-}
-
-
-function startRest(){
-
- clearInterval(restInterval);
-
- restInterval=setInterval(()=>{
-
-  restSeconds--;
-
-  const el=document.getElementById("restNumber");
-
-  if(el)el.textContent=restSeconds;
-
-  if(restSeconds<=0){
-
-   clearInterval(restInterval);
-   restInterval=null;
-
-   alert("Rest finished. Begin your next set.");
-
-   restSeconds=60;
-
-   const e=document.getElementById("restNumber");
-
-   if(e)e.textContent=restSeconds;
+    return;
 
   }
 
- },1000);
+  const progress =
+    calculateProgress(primary);
 
-}
+  box.innerHTML = `
 
-
-function resetRest(){
-
- clearInterval(restInterval);
-
- restInterval=null;
-
- restSeconds=60;
-
- const el=document.getElementById("restNumber");
-
- if(el)el.textContent=restSeconds;
-
-}
-
-
-function finishWorkout(){
-
- clearInterval(restInterval);
-
- restInterval=null;
-
- const id=session.workout;
-
- data.completedWorkouts++;
-
- data.history.push({
-  workout:id,
-  date:new Date().toISOString(),
-  sets:session.completedSets
- });
-
- saveData();
-
- document.getElementById("sessionContent").innerHTML=`
-
-  <div style="text-align:center;padding:35px 5px">
-
-   <div style="font-size:55px">✓</div>
-
-   <h2 style="margin:15px 0">
-    Workout Complete
-   </h2>
-
-   <p class="muted">
-    You completed ${session.completedSets}
-    of ${session.totalSets} planned sets.
-   </p>
-
-   <button
-    class="primary"
-    onclick="closeModal();renderHome()">
-
-    Finish
-
-   </button>
-
-  </div>
-
- `;
-
-}
-
-
-/* =========================
-   GOALS
-========================= */
-
-function addGoal(){
-
- const type=prompt(
-  "Goal type (e.g. Arms, Chest, Calves, Weight, Push-ups):"
- );
-
- if(!type)return;
-
- const current=parseFloat(
-  prompt("Current value:")
- );
-
- const target=parseFloat(
-  prompt("Target value:")
- );
-
- if(isNaN(current)||isNaN(target)){
-
-  alert("Please enter valid numbers.");
-  return;
-
- }
-
- const unit=prompt(
-  "Unit (cm, kg, reps, seconds):",
-  "cm"
- )||"";
-
- data.goals.push({
-  type,
-  current,
-  target,
-  unit,
-  primary:data.goals.length===0
- });
-
- saveData();
-
- renderGoals();
- renderHome();
-
-}
-
-
-function renderGoals(){
-
- const box=document.getElementById("goalList");
-
- if(data.goals.length===0){
-
-  box.innerHTML=`
-
-   <div class="card empty">
-    No goals yet.<br><br>
-    Tap ＋ Add to create your first goal.
-   </div>
-
-  `;
-
-  return;
-
- }
-
-
- box.innerHTML=data.goals.map((g,i)=>{
-
-  let percentage=(g.current/g.target)*100;
-
-  percentage=Math.max(
-   0,
-   Math.min(100,percentage)
-  );
-
-  return`
-
-   <div class="card">
-
-    <div style="display:flex;justify-content:space-between">
-
-     <strong>
-      ${g.type}
-      ${g.primary?" · PRIMARY":""}
-     </strong>
-
-     <span style="color:var(--accent2);font-weight:bold">
-      ${Math.round(percentage)}%
-     </span>
-
-    </div>
-
-    <div class="muted" style="margin-top:10px">
-     ${g.current} ${g.unit}
-     →
-     ${g.target} ${g.unit}
-    </div>
+    <h3>${primary.name}</h3>
 
     <div class="progress">
-     <div
-      class="progress-fill"
-      style="width:${percentage}%">
-     </div>
-    </div>
 
-    <div style="display:flex;gap:8px">
-
-     ${!g.primary?`
-
-      <button
-       class="secondary"
-       onclick="makePrimary(${i})">
-
-       Make Primary
-
-      </button>
-
-     `:""}
-
-     <button
-      class="secondary"
-      onclick="deleteGoal(${i})">
-
-      Delete
-
-     </button>
-
-    </div>
-
-   </div>
-
-  `;
-
- }).join("");
-
-}
-
-
-function makePrimary(index){
-
- data.goals.forEach(g=>g.primary=false);
-
- data.goals[index].primary=true;
-
- saveData();
-
- renderGoals();
- renderHome();
-
-}
-
-
-function deleteGoal(index){
-
- data.goals.splice(index,1);
-
- if(data.goals.length &&
-    !data.goals.some(g=>g.primary)){
-
-  data.goals[0].primary=true;
-
- }
-
- saveData();
-
- renderGoals();
- renderHome();
-
-}
-
-
-/* =========================
-   EXERCISES
-========================= */
-
-function renderExercises(){
-
- const query=
-  document.getElementById("exerciseSearch")
-  .value
-  .toLowerCase();
-
- const names=Object.keys(exerciseInfo);
-
- const filtered=names.filter(name=>
-  name.toLowerCase().includes(query)||
-  exerciseInfo[name].category.toLowerCase().includes(query)
- );
-
- document.getElementById("exerciseCount")
-  .textContent=filtered.length+" exercises";
-
-
- document.getElementById("exerciseList").innerHTML=
-  filtered.map(name=>{
-
-   const e=exerciseInfo[name];
-
-   return`
-
-    <div class="card">
-
-     <div class="exercise-row">
-
-      <div class="exercise-info">
-
-       <strong>${name}</strong>
-
-       <span>
-        ${e.category} · ${e.muscles}
-       </span>
-
+      <div
+        class="progress-bar"
+        style="width:${progress}%">
       </div>
 
-      <button
-       class="secondary"
-       onclick="showExercise('${name}')">
-
-       View
-
-      </button>
-
-     </div>
-
     </div>
 
-   `;
+    <p class="progress-text">
 
-  }).join("");
+      ${Math.round(progress)}% complete
 
-}
+    </p>
 
-
-function showExercise(name){
-
- const e=exerciseInfo[name];
-
- alert(
-  name+
-  "\n\nTargets: "+e.muscles+
-  "\n\nHow to perform:\n"+
-  e.instructions+
-  "\n\nVideo will be added later."
- );
+  `;
 
 }
 
@@ -1791,192 +1530,469 @@ function showExercise(name){
    PROFILE
 ========================= */
 
-function renderSettings(){
-
- const p=data.profile;
-
- document.getElementById("nameInput").value=p.name||"";
- document.getElementById("ageInput").value=p.age||"";
- document.getElementById("heightInput").value=p.height||"";
- document.getElementById("weightInput").value=p.weight||"";
- document.getElementById("experienceInput").value=p.experience||"";
-
- renderHistory();
-
-}
-
-
 function saveProfile(){
 
- data.profile.name=
-  document.getElementById("nameInput").value.trim()
-  ||"Jehu";
+  data.profile.name =
+    document.getElementById("profileName").value.trim()
+    || "Jehu";
 
- data.profile.age=
-  document.getElementById("ageInput").value;
+  data.profile.age =
+    document.getElementById("profileAge").value;
 
- data.profile.height=
-  document.getElementById("heightInput").value;
+  saveData();
 
- data.profile.weight=
-  document.getElementById("weightInput").value;
+  renderHome();
 
- data.profile.experience=
-  document.getElementById("experienceInput").value;
-
- saveData();
-
- renderHome();
-
- alert("Profile saved.");
+  alert("Profile saved.");
 
 }
 
 
-function renderHistory(){
+function loadProfile(){
 
- const box=document.getElementById("history");
+  document.getElementById("profileName").value =
+    data.profile.name || "";
 
- if(data.history.length===0){
+  document.getElementById("profileAge").value =
+    data.profile.age || "";
 
-  box.innerHTML=`
-   <div class="empty">
-    No completed workouts yet.
-   </div>
-  `;
+}
 
-  return;
 
- }
+/* =========================
+   WORKOUT ENGINE
+========================= */
 
- box.innerHTML=[...data.history]
-  .reverse()
-  .map(h=>{
+const workouts = {
 
-   const w=workouts[h.workout];
+  monday:{
+    name:"Monday — Chest, Arms & Abs",
 
-   return`
+    exercises:[
 
-    <div class="history-item">
+      ["Standard Push-up",3,"8–15 reps"],
+      ["Wide Push-up",3,"8–15 reps"],
+      ["Diamond Push-up",3,"6–12 reps"],
+      ["Self-Resisted Biceps Curl",3,"10–15 reps"],
+      ["Triceps Extension",3,"10–15 reps"],
+      ["Crunch",3,"15–20 reps"],
+      ["Plank",3,"30–60 sec"]
 
-     <div>
-      <strong>
-       ${w?w.title:h.workout}
-      </strong>
+    ]
 
-      <div class="muted">
-       ${new Date(h.date).toLocaleString()}
+  },
+
+  wednesday:{
+    name:"Wednesday — Back, Shoulders, Arms & Abs",
+
+    exercises:[
+
+      ["Superman",3,"12–15 reps"],
+      ["Reverse Snow Angel",3,"10–15 reps"],
+      ["Pike Push-up",3,"6–12 reps"],
+      ["Self-Resisted Biceps Curl",3,"10–15 reps"],
+      ["Triceps Extension",3,"10–15 reps"],
+      ["Reverse Crunch",3,"12–20 reps"],
+      ["Leg Raise",3,"8–15 reps"]
+
+    ]
+
+  },
+
+  saturday:{
+    name:"Saturday — Full Body",
+
+    exercises:[
+
+      ["Bodyweight Squat",3,"12–20 reps"],
+      ["Reverse Lunge",3,"8–12 each leg"],
+      ["Standard Push-up",3,"8–15 reps"],
+      ["Pike Push-up",3,"6–12 reps"],
+      ["Glute Bridge",3,"12–20 reps"],
+      ["Calf Raise",4,"15–25 reps"],
+      ["Self-Resisted Biceps Curl",3,"10–15 reps"],
+      ["Plank",3,"30–60 sec"]
+
+    ]
+
+  }
+
+};
+
+
+function renderWorkouts(){
+
+  const day =
+    new Date().getDay();
+
+  let today;
+
+  if(day===1) today=workouts.monday;
+
+  if(day===3) today=workouts.wednesday;
+
+  if(day===6) today=workouts.saturday;
+
+  const text =
+    document.getElementById("todayWorkoutText");
+
+  if(today){
+
+    text.textContent =
+      `Today's session: ${today.name}`;
+
+  }else{
+
+    text.textContent =
+      "Today is a recovery day. Your next workout is coming.";
+
+  }
+
+  const box =
+    document.getElementById("workoutList");
+
+  box.innerHTML =
+    Object.entries(workouts).map(([id,w])=>`
+
+      <div class="card">
+
+        <h2>${w.name}</h2>
+
+        <p class="muted">
+          ${w.exercises.length} exercises
+        </p>
+
+        <div style="height:12px"></div>
+
+        <button
+          class="btn"
+          onclick="startWorkout('${id}')">
+
+          Start Workout
+
+        </button>
+
       </div>
-     </div>
 
-     <strong>✓</strong>
+    `).join("");
+
+}
+
+
+let workoutSession = null;
+
+
+function startWorkout(id){
+
+  const workout =
+    workouts[id];
+
+  workoutSession = {
+
+    id:id,
+
+    workout:workout,
+
+    exerciseIndex:0,
+
+    setIndex:1,
+
+    totalSets:workout.exercises
+      .reduce((sum,e)=>sum+e[1],0),
+
+    completedSets:0
+
+  };
+
+  document
+    .getElementById("workoutModal")
+    .classList.add("show");
+
+  renderWorkoutEngine();
+
+}
+
+
+function renderWorkoutEngine(){
+
+  const s = workoutSession;
+
+  const exercise =
+    s.workout.exercises[s.exerciseIndex];
+
+  const name=exercise[0];
+
+  const sets=exercise[1];
+
+  const reps=exercise[2];
+
+  document.getElementById("workoutTitle").textContent =
+    s.workout.name;
+
+  document.getElementById("workoutEngine").innerHTML = `
+
+    <div class="card">
+
+      <h2>${name}</h2>
+
+      <p class="muted">
+        Set ${s.setIndex} of ${sets}
+      </p>
+
+      <div style="height:10px"></div>
+
+      <div class="stat">
+
+        <div class="label">Target</div>
+
+        <div class="value">${reps}</div>
+
+      </div>
+
+      <div style="height:15px"></div>
+
+      <button
+        class="btn full"
+        onclick="completeSet()">
+
+        Complete Set
+
+      </button>
+
+      <div style="height:10px"></div>
+
+      <button
+        class="btn secondary full"
+        onclick="skipExercise()">
+
+        Skip Exercise
+
+      </button>
 
     </div>
 
-   `;
+  `;
 
-  }).join("");
+}
+
+
+function completeSet(){
+
+  const s=workoutSession;
+
+  const exercise =
+    s.workout.exercises[s.exerciseIndex];
+
+  const sets=exercise[1];
+
+  s.completedSets++;
+
+  if(s.setIndex < sets){
+
+    s.setIndex++;
+
+  }else{
+
+    if(
+      s.exerciseIndex <
+      s.workout.exercises.length-1
+    ){
+
+      s.exerciseIndex++;
+
+      s.setIndex=1;
+
+    }else{
+
+      finishWorkout();
+
+      return;
+
+    }
+
+  }
+
+  renderWorkoutEngine();
+
+}
+
+
+function skipExercise(){
+
+  const s=workoutSession;
+
+  if(
+    s.exerciseIndex <
+    s.workout.exercises.length-1
+  ){
+
+    s.exerciseIndex++;
+
+    s.setIndex=1;
+
+    renderWorkoutEngine();
+
+  }else{
+
+    finishWorkout();
+
+  }
+
+}
+
+
+function finishWorkout(){
+
+  const s=workoutSession;
+
+  data.completedWorkouts =
+    (data.completedWorkouts || 0)+1;
+
+  data.history.push({
+
+    type:"workout",
+
+    workout:s.workout.name,
+
+    date:new Date().toISOString(),
+
+    sets:s.completedSets
+
+  });
+
+  saveData();
+
+  alert("Workout complete. Excellent work.");
+
+  closeWorkout();
+
+  renderHome();
+
+}
+
+
+function closeWorkout(){
+
+  document
+    .getElementById("workoutModal")
+    .classList.remove("show");
+
+  workoutSession=null;
 
 }
 
 
 /* =========================
-   AVEN
+   EXERCISES
 ========================= */
 
-function sendAven(){
+const exerciseLibrary = [
 
- const input=document.getElementById("avenInput");
+  ["Standard Push-up","Chest, triceps","Keep your body straight and lower your chest under control."],
+  ["Wide Push-up","Chest","Place your hands wider than shoulder width."],
+  ["Diamond Push-up","Triceps, chest","Bring your hands close together beneath your chest."],
+  ["Pike Push-up","Shoulders, triceps","Raise your hips and lower your head towards the floor."],
+  ["Bodyweight Squat","Thighs, glutes","Keep your chest up and sit your hips back."],
+  ["Reverse Lunge","Thighs, glutes","Step backwards and lower your body under control."],
+  ["Glute Bridge","Glutes","Drive your hips upward and squeeze the glutes."],
+  ["Calf Raise","Calves","Rise onto the balls of your feet and lower slowly."],
+  ["Crunch","Abs","Curl your upper body towards your pelvis."],
+  ["Reverse Crunch","Abs","Bring your knees towards your chest using your abdominal muscles."],
+  ["Leg Raise","Abs","Raise and lower your legs under control."],
+  ["Plank","Core","Keep your body in a straight line and brace your abdomen."],
+  ["Superman","Back","Lift your arms and legs while lying face down."],
+  ["Reverse Snow Angel","Upper back, shoulders","Move your arms slowly through the snow-angel pattern."],
+  ["Self-Resisted Biceps Curl","Biceps","Use one hand to provide resistance to the working arm."],
+  ["Triceps Extension","Triceps","Extend the arm against controlled resistance."]
 
- const message=input.value.trim();
-
- if(!message)return;
-
- const chat=document.getElementById("chat");
-
- chat.innerHTML+=`
-
-  <div class="message user">
-   ${escapeHTML(message)}
-  </div>
-
- `;
-
- let reply=
-  "I'm ready to become your full training assistant. The real Aven connection will be added after the app foundation is complete.";
-
- const m=message.toLowerCase();
-
- if(m.includes("today")){
-
-  const id=todayWorkout();
-
-  reply=id
-   ?"Today's scheduled session is "+workouts[id].title+"."
-   :"Today is a recovery day.";
-
- }
-
- else if(m.includes("workout")){
-
-  reply=
-   "Open Workouts to see all three training sessions. You can start any session from there.";
-
- }
-
- else if(m.includes("goal")){
-
-  reply=
-   "Open Goals to create and track your targets.";
-
- }
-
- else if(m.includes("hello")||m.includes("hi")){
-
-  reply=
-   "Hello Jehu. Ready to train?";
-
- }
+];
 
 
- chat.innerHTML+=`
+function renderExercises(){
 
-  <div class="message aven">
-   ${reply}
-  </div>
+  const box =
+    document.getElementById("exerciseList");
 
- `;
+  box.innerHTML =
+    exerciseLibrary.map(e=>`
 
- input.value="";
+      <div class="exercise">
 
- chat.scrollTop=chat.scrollHeight;
+        <div class="exercise-name">
+          ${e[0]}
+        </div>
 
-}
+        <div class="exercise-info">
+          Muscles: ${e[1]}
+        </div>
 
+        <div class="exercise-info">
+          ${e[2]}
+        </div>
 
-function escapeHTML(text){
+        <div style="height:8px"></div>
 
- const div=document.createElement("div");
+        <button
+          class="btn secondary small"
+          onclick="alert('Exercise video will be added in the video phase.')">
 
- div.textContent=text;
+          Watch Demo
 
- return div.innerHTML;
+        </button>
+
+      </div>
+
+    `).join("");
 
 }
 
 
 /* =========================
-   MODAL
+   FORMATTING
 ========================= */
 
-function closeModal(){
+function formatDate(date){
 
- clearInterval(restInterval);
+  if(!date) return "";
 
- restInterval=null;
+  return new Date(date).toLocaleDateString();
 
- document.getElementById("workoutModal")
-  .classList.remove("show");
+}
+
+
+function formatDateTime(date){
+
+  return new Date(date).toLocaleString();
+
+}
+
+
+function formatSeconds(seconds){
+
+  seconds=parseInt(seconds)||0;
+
+  const min=Math.floor(seconds/60);
+
+  const sec=seconds%60;
+
+  return `${min}m ${sec}s`;
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+function resetApp(){
+
+  if(!confirm(
+    "This will permanently erase your goals, measurements and workout history. Continue?"
+  )) return;
+
+  localStorage.removeItem("jehuWorkoutData");
+
+  location.reload();
 
 }
 
@@ -1985,10 +2001,48 @@ function closeModal(){
    INITIALISE
 ========================= */
 
-renderHome();
-renderWorkouts();
-renderGoals();
-renderExercises();
+function initialise(){
+
+  /*
+    Make sure older Phase 1 data does not break.
+  */
+
+  if(!data.goals) data.goals=[];
+
+  if(!data.measurements) data.measurements=[];
+
+  if(!data.records){
+
+    data.records={
+      pushups:0,
+      plank:0
+    };
+
+  }
+
+  if(!data.history) data.history=[];
+
+  if(!data.completedWorkouts)
+    data.completedWorkouts=0;
+
+  saveData();
+
+  loadProfile();
+
+  renderHome();
+
+  renderWorkouts();
+
+  renderGoals();
+
+  renderProgress();
+
+  renderExercises();
+
+}
+
+
+initialise();
 
 </script>
 
