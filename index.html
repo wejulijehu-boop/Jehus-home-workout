@@ -6,11 +6,15 @@
 <title>Jehu's Home Workout</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#0b0f14;
+  background:#080c12;
   color:#f5f7fa;
   min-height:100vh;
 }
@@ -30,27 +34,27 @@ button{
 }
 
 header{
-  padding:24px 20px 16px;
-  background:#111720;
+  padding:22px 18px 16px;
+  background:#111821;
+  border-bottom:1px solid #202a34;
   position:sticky;
   top:0;
   z-index:10;
-  border-bottom:1px solid #202832;
 }
 
 .brand{
-  font-size:25px;
+  font-size:24px;
   font-weight:800;
 }
 
 .subtitle{
-  color:#9da8b5;
+  color:#9ba7b4;
+  font-size:13px;
   margin-top:5px;
-  font-size:14px;
 }
 
 main{
-  padding:20px;
+  padding:18px;
 }
 
 .section{
@@ -61,103 +65,104 @@ main{
   display:block;
 }
 
-.card{
-  background:#121923;
-  border:1px solid #222d38;
-  border-radius:18px;
-  padding:18px;
+.hero{
+  background:linear-gradient(135deg,#17212c,#0f151d);
+  border:1px solid #26313c;
+  border-radius:20px;
+  padding:21px;
   margin-bottom:16px;
 }
 
+.hero h1{
+  font-size:27px;
+  margin-bottom:7px;
+}
+
+.hero p{
+  color:#a4afbb;
+}
+
+.card{
+  background:#111821;
+  border:1px solid #222d38;
+  border-radius:17px;
+  padding:17px;
+  margin-bottom:14px;
+}
+
 .card h2{
-  font-size:19px;
+  font-size:18px;
   margin-bottom:12px;
 }
 
 .card h3{
   font-size:16px;
-  margin-bottom:7px;
+  margin-bottom:6px;
 }
 
 .muted{
-  color:#9da8b5;
-}
-
-.hero{
-  background:linear-gradient(135deg,#17212c,#10161e);
-  padding:22px;
-  border-radius:20px;
-  margin-bottom:18px;
-}
-
-.hero h1{
-  font-size:28px;
-  margin-bottom:8px;
-}
-
-.hero p{
-  color:#aeb8c4;
+  color:#96a2af;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:11px;
 }
 
 .stat{
-  background:#101720;
-  border:1px solid #232d37;
-  padding:15px;
-  border-radius:15px;
+  background:#0d141c;
+  border:1px solid #232e39;
+  border-radius:14px;
+  padding:14px;
+}
+
+.stat .label{
+  color:#8995a2;
+  font-size:12px;
 }
 
 .stat .value{
-  font-size:23px;
+  font-size:21px;
   font-weight:800;
   margin-top:5px;
 }
 
-.stat .label{
-  color:#8e9aa7;
-  font-size:12px;
-}
-
 .btn{
+  background:#287cf0;
+  color:#fff;
   border:0;
-  border-radius:12px;
-  padding:12px 15px;
-  background:#2d7ff9;
-  color:white;
+  border-radius:11px;
+  padding:11px 14px;
   font-weight:700;
 }
 
 .btn.secondary{
-  background:#202b36;
+  background:#202a35;
 }
 
 .btn.danger{
-  background:#8f3030;
-}
-
-.btn.small{
-  padding:8px 11px;
-  font-size:13px;
+  background:#873333;
 }
 
 .btn.full{
   width:100%;
 }
 
+.btn.small{
+  font-size:12px;
+  padding:8px 10px;
+}
+
 .row{
   display:flex;
-  gap:10px;
-  align-items:center;
   flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
 }
 
 .goal{
-  background:#101720;
+  background:#0d141c;
   border:1px solid #27323d;
   border-radius:16px;
   padding:16px;
@@ -165,14 +170,14 @@ main{
 }
 
 .goal.primary{
-  border-color:#2d7ff9;
+  border-color:#287cf0;
 }
 
 .goal-top{
   display:flex;
   justify-content:space-between;
-  gap:10px;
   align-items:flex-start;
+  gap:10px;
 }
 
 .goal-name{
@@ -182,41 +187,72 @@ main{
 
 .badge{
   display:inline-block;
-  font-size:11px;
-  padding:4px 7px;
-  border-radius:7px;
-  background:#2d7ff9;
+  background:#287cf0;
+  border-radius:6px;
+  padding:4px 6px;
+  font-size:9px;
   margin-left:5px;
+  vertical-align:middle;
+}
+
+.goal-meta{
+  color:#929eaa;
+  font-size:12px;
+  margin-top:7px;
 }
 
 .progress{
   height:9px;
-  background:#222c35;
+  background:#222c36;
   border-radius:20px;
   overflow:hidden;
-  margin:12px 0 7px;
+  margin:12px 0 6px;
 }
 
 .progress-bar{
   height:100%;
-  background:#2d7ff9;
-  width:0%;
+  background:#287cf0;
+  border-radius:20px;
   transition:.3s;
 }
 
 .progress-text{
-  font-size:13px;
-  color:#aab4bf;
-}
-
-.goal-meta{
-  color:#8f9aa7;
+  color:#98a4b0;
   font-size:12px;
-  margin-top:8px;
 }
 
-.goal-actions{
-  margin-top:12px;
+.exercise{
+  background:#0d141c;
+  border:1px solid #26313b;
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:10px;
+}
+
+.exercise-name{
+  font-weight:800;
+  font-size:16px;
+}
+
+.exercise-info{
+  color:#929eaa;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.history-item{
+  padding:12px 0;
+  border-bottom:1px solid #252f39;
+}
+
+.history-item:last-child{
+  border-bottom:0;
+}
+
+.empty{
+  text-align:center;
+  padding:25px;
+  color:#8e9aa7;
 }
 
 .form-group{
@@ -225,23 +261,23 @@ main{
 
 .form-group label{
   display:block;
+  color:#a7b1bc;
   font-size:13px;
-  color:#aab4bf;
   margin-bottom:6px;
 }
 
 input,select{
   width:100%;
-  background:#0d141b;
-  border:1px solid #293540;
-  color:white;
+  background:#0b1118;
+  border:1px solid #2a3540;
   border-radius:10px;
-  padding:12px;
+  color:white;
+  padding:11px;
   outline:none;
 }
 
 input:focus,select:focus{
-  border-color:#2d7ff9;
+  border-color:#287cf0;
 }
 
 .modal{
@@ -251,8 +287,8 @@ input:focus,select:focus{
   display:none;
   align-items:center;
   justify-content:center;
+  padding:18px;
   z-index:100;
-  padding:20px;
 }
 
 .modal.show{
@@ -264,97 +300,64 @@ input:focus,select:focus{
   max-width:520px;
   max-height:90vh;
   overflow:auto;
-  background:#121923;
-  border:1px solid #29343f;
+  background:#111821;
+  border:1px solid #293540;
   border-radius:20px;
-  padding:20px;
+  padding:19px;
 }
 
 .modal-box h2{
-  margin-bottom:18px;
+  margin-bottom:17px;
 }
 
 .close{
   float:right;
-  background:none;
   border:0;
+  background:none;
   color:#aaa;
   font-size:25px;
 }
 
-.exercise{
-  background:#101720;
-  border:1px solid #27313b;
-  padding:15px;
-  border-radius:15px;
-  margin-bottom:10px;
-}
-
-.exercise-name{
-  font-weight:800;
-}
-
-.exercise-info{
-  color:#9ba7b3;
-  font-size:13px;
-  margin-top:5px;
-}
-
-.history-item{
-  padding:12px 0;
-  border-bottom:1px solid #242e38;
-}
-
-.history-item:last-child{
-  border-bottom:0;
-}
-
-.empty{
-  text-align:center;
-  padding:25px 10px;
-  color:#8f9aa7;
-}
-
 nav{
   position:fixed;
-  bottom:0;
   left:0;
   right:0;
+  bottom:0;
   height:70px;
-  background:#111720;
+  background:#111821;
   border-top:1px solid #252f39;
-  display:flex;
-  justify-content:center;
   z-index:20;
 }
 
 .nav-inner{
-  width:100%;
   max-width:900px;
+  height:100%;
+  margin:auto;
   display:flex;
 }
 
 .nav-btn{
   flex:1;
-  background:none;
   border:0;
+  background:none;
   color:#7f8b98;
-  font-size:11px;
+  font-size:10px;
 }
 
 .nav-btn.active{
-  color:#fff;
+  color:white;
 }
 
 .nav-icon{
   display:block;
-  font-size:20px;
+  font-size:19px;
   margin-bottom:3px;
 }
 
 @media(max-width:600px){
-  main{padding:14px}
-  .grid{grid-template-columns:1fr 1fr}
+  main{
+    padding:14px;
+  }
 }
 </style>
 </head>
@@ -365,7 +368,7 @@ nav{
 
 <header>
   <div class="brand">Jehu's Home Workout</div>
-  <div class="subtitle">Build stronger. Track everything. Stay consistent.</div>
+  <div class="subtitle">Train. Track. Progress.</div>
 </header>
 
 <main>
@@ -375,10 +378,11 @@ nav{
 
   <div class="hero">
     <h1 id="greeting">Welcome, Jehu</h1>
-    <p id="homeMessage">Your progress starts with consistency.</p>
+    <p>Build stronger and more defined muscles through consistent training.</p>
   </div>
 
   <div class="grid">
+
     <div class="stat">
       <div class="label">Weight</div>
       <div class="value" id="homeWeight">—</div>
@@ -395,9 +399,10 @@ nav{
     </div>
 
     <div class="stat">
-      <div class="label">Workouts Completed</div>
+      <div class="label">Workouts</div>
       <div class="value" id="homeWorkouts">0</div>
     </div>
+
   </div>
 
   <div class="card">
@@ -407,9 +412,21 @@ nav{
 
   <div class="card">
     <h2>Quick Actions</h2>
+
     <div class="row">
-      <button class="btn" onclick="showSection('workouts')">Start Workout</button>
-      <button class="btn secondary" onclick="openMeasurementModal()">Update Measurement</button>
+
+      <button
+        class="btn"
+        onclick="showSection('workouts')">
+        Start Workout
+      </button>
+
+      <button
+        class="btn secondary"
+        onclick="openMeasurementModal()">
+        Update Measurement
+      </button>
+
     </div>
   </div>
 
@@ -434,10 +451,14 @@ nav{
 
   <div class="hero">
     <h1>My Goals</h1>
-    <p>Set targets and monitor your progress.</p>
+    <p>Set several goals and choose one primary target.</p>
   </div>
 
-  <button class="btn full" onclick="openGoalModal()">＋ Add New Goal</button>
+  <button
+    class="btn full"
+    onclick="openGoalModal()">
+    ＋ Add New Goal
+  </button>
 
   <div style="height:14px"></div>
 
@@ -451,28 +472,39 @@ nav{
 
   <div class="hero">
     <h1>Progress</h1>
-    <p>Your measurements and performance over time.</p>
+    <p>Track your measurements and performance over time.</p>
   </div>
 
   <div class="card">
+
     <h2>Current Measurements</h2>
+
     <div id="measurementGrid" class="grid"></div>
 
     <div style="height:12px"></div>
 
-    <button class="btn full" onclick="openMeasurementModal()">
+    <button
+      class="btn full"
+      onclick="openMeasurementModal()">
       ＋ Record Measurement
     </button>
+
   </div>
 
   <div class="card">
+
     <h2>Personal Records</h2>
+
     <div id="recordsList"></div>
+
   </div>
 
   <div class="card">
+
     <h2>Measurement History</h2>
+
     <div id="measurementHistory"></div>
+
   </div>
 
 </section>
@@ -483,7 +515,7 @@ nav{
 
   <div class="hero">
     <h1>Exercise Library</h1>
-    <p>Learn the exercises used in your programme.</p>
+    <p>Your programme's exercise reference.</p>
   </div>
 
   <div id="exerciseList"></div>
@@ -496,27 +528,19 @@ nav{
 
   <div class="hero">
     <h1>Ask Aven</h1>
-    <p>Your workout assistant.</p>
+    <p>Your future intelligent workout assistant.</p>
   </div>
 
   <div class="card">
-    <h2>What can Aven do?</h2>
+
+    <h2>Coming later</h2>
+
     <p class="muted">
-      The full Aven connection will be added later. For now, this section
-      prepares the app for workout, goal and progress commands.
+      Aven will eventually be connected directly to your app.
+      You will be able to ask Aven to change workouts, update
+      measurements, adjust goals, start sessions and analyse your progress.
     </p>
 
-    <div style="height:15px"></div>
-
-    <div class="exercise">
-      <div class="exercise-name">Example commands</div>
-      <div class="exercise-info">
-        "Update my arm measurement"<br>
-        "Make Saturday harder"<br>
-        "What is my primary goal?"<br>
-        "How much have I progressed?"
-      </div>
-    </div>
   </div>
 
 </section>
@@ -527,10 +551,11 @@ nav{
 
   <div class="hero">
     <h1>Settings</h1>
-    <p>Manage your profile and app data.</p>
+    <p>Manage your profile.</p>
   </div>
 
   <div class="card">
+
     <h2>Profile</h2>
 
     <div class="form-group">
@@ -543,12 +568,24 @@ nav{
       <input id="profileAge" type="number">
     </div>
 
-    <button class="btn" onclick="saveProfile()">Save Profile</button>
+    <button
+      class="btn"
+      onclick="saveProfile()">
+      Save Profile
+    </button>
+
   </div>
 
   <div class="card">
+
     <h2>Data</h2>
-    <button class="btn danger" onclick="resetApp()">Reset All App Data</button>
+
+    <button
+      class="btn danger"
+      onclick="resetApp()">
+      Reset All App Data
+    </button>
+
   </div>
 
 </section>
@@ -558,131 +595,206 @@ nav{
 
 
 <!-- GOAL MODAL -->
+
 <div id="goalModal" class="modal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button class="close" onclick="closeGoalModal()">×</button>
+<button class="close" onclick="closeGoalModal()">×</button>
 
-    <h2>Add Goal</h2>
+<h2>Create Goal</h2>
 
-    <div class="form-group">
-      <label>Goal type</label>
-      <select id="goalType" onchange="updateGoalFields()">
+<div class="form-group">
 
-        <option value="arms">Arms</option>
-        <option value="chest">Chest</option>
-        <option value="abs">Abs / Core</option>
-        <option value="shoulders">Shoulders</option>
-        <option value="back">Back</option>
-        <option value="thighs">Thighs</option>
-        <option value="calves">Calves</option>
-        <option value="glutes">Glutes</option>
-        <option value="height">Height</option>
-        <option value="weight">Body Weight</option>
-        <option value="pushups">Push-ups</option>
-        <option value="plank">Plank</option>
-        <option value="fullbody">Full Body</option>
-        <option value="custom">Custom</option>
+<label>Goal type</label>
 
-      </select>
-    </div>
+<select id="goalType" onchange="updateGoalFields()">
 
-    <div class="form-group" id="customNameGroup" style="display:none">
-      <label>Custom goal name</label>
-      <input id="customGoalName" type="text" placeholder="e.g. Pull-up strength">
-    </div>
+<option value="arms">Arms</option>
+<option value="chest">Chest</option>
+<option value="abs">Abs / Core</option>
+<option value="shoulders">Shoulders</option>
+<option value="back">Back</option>
+<option value="thighs">Thighs</option>
+<option value="calves">Calves</option>
+<option value="glutes">Glutes</option>
+<option value="height">Height</option>
+<option value="weight">Body Weight</option>
+<option value="pushups">Push-ups</option>
+<option value="plank">Plank</option>
+<option value="fullbody">Full Body</option>
+<option value="custom">Custom</option>
 
-    <div class="form-group">
-      <label>Current value</label>
-      <input id="goalCurrent" type="number" step="0.1" placeholder="e.g. 30">
-    </div>
+</select>
 
-    <div class="form-group">
-      <label>Target value</label>
-      <input id="goalTarget" type="number" step="0.1" placeholder="e.g. 35">
-    </div>
+</div>
 
-    <div class="form-group">
-      <label>Unit</label>
-      <select id="goalUnit">
-        <option value="cm">cm</option>
-        <option value="kg">kg</option>
-        <option value="reps">reps</option>
-        <option value="seconds">seconds</option>
-        <option value="minutes">minutes</option>
-        <option value="">No unit</option>
-      </select>
-    </div>
 
-    <div class="form-group">
-      <label>Target date</label>
-      <input id="goalDate" type="date">
-    </div>
+<div
+  class="form-group"
+  id="customNameGroup"
+  style="display:none">
 
-    <div class="form-group">
-      <label>
-        <input id="goalPrimary" type="checkbox" style="width:auto;margin-right:7px">
-        Make this my primary goal
-      </label>
-    </div>
+<label>Custom goal name</label>
 
-    <button class="btn full" onclick="saveGoal()">Save Goal</button>
+<input
+  id="customGoalName"
+  type="text"
+  placeholder="e.g. Pull-up strength">
 
-  </div>
+</div>
+
+
+<div class="form-group">
+
+<label>Current value</label>
+
+<input
+  id="goalCurrent"
+  type="number"
+  step="0.1"
+  placeholder="e.g. 30">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Target value</label>
+
+<input
+  id="goalTarget"
+  type="number"
+  step="0.1"
+  placeholder="e.g. 35">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Unit</label>
+
+<select id="goalUnit">
+
+<option value="cm">cm</option>
+<option value="kg">kg</option>
+<option value="reps">reps</option>
+<option value="seconds">seconds</option>
+<option value="minutes">minutes</option>
+<option value="">No unit</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Target date</label>
+
+<input id="goalDate" type="date">
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+
+<input
+  id="goalPrimary"
+  type="checkbox"
+  style="width:auto;margin-right:7px">
+
+Make this my primary goal
+
+</label>
+
+</div>
+
+
+<button
+  class="btn full"
+  onclick="saveGoal()">
+
+Save Goal
+
+</button>
+
+</div>
 </div>
 
 
 <!-- MEASUREMENT MODAL -->
+
 <div id="measurementModal" class="modal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button class="close" onclick="closeMeasurementModal()">×</button>
+<button class="close" onclick="closeMeasurementModal()">×</button>
 
-    <h2>Record Measurement</h2>
+<h2>Record Measurement</h2>
 
-    <div class="form-group">
-      <label>Measurement</label>
+<div class="form-group">
 
-      <select id="measurementType">
-        <option value="weight">Body Weight</option>
-        <option value="height">Height</option>
-        <option value="arms">Arms</option>
-        <option value="chest">Chest</option>
-        <option value="waist">Waist</option>
-        <option value="thighs">Thighs</option>
-        <option value="calves">Calves</option>
-        <option value="pushups">Maximum Push-ups</option>
-        <option value="plank">Maximum Plank</option>
-      </select>
-    </div>
+<label>Measurement</label>
 
-    <div class="form-group">
-      <label>Value</label>
-      <input id="measurementValue" type="number" step="0.1" placeholder="Enter value">
-    </div>
+<select id="measurementType">
 
-    <button class="btn full" onclick="saveMeasurement()">
-      Save Measurement
-    </button>
+<option value="weight">Body Weight</option>
+<option value="height">Height</option>
+<option value="arms">Arms</option>
+<option value="chest">Chest</option>
+<option value="waist">Waist</option>
+<option value="thighs">Thighs</option>
+<option value="calves">Calves</option>
+<option value="pushups">Maximum Push-ups</option>
+<option value="plank">Maximum Plank</option>
 
-  </div>
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Value</label>
+
+<input
+  id="measurementValue"
+  type="number"
+  step="0.1"
+  placeholder="Enter value">
+
+</div>
+
+
+<button
+  class="btn full"
+  onclick="saveMeasurement()">
+
+Save Measurement
+
+</button>
+
+</div>
 </div>
 
 
 <!-- WORKOUT MODAL -->
+
 <div id="workoutModal" class="modal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button class="close" onclick="closeWorkout()">×</button>
+<button class="close" onclick="closeWorkout()">×</button>
 
-    <h2 id="workoutTitle">Workout</h2>
+<h2 id="workoutTitle">Workout</h2>
 
-    <div id="workoutEngine"></div>
+<div id="workoutEngine"></div>
 
-  </div>
+</div>
 </div>
 
 
@@ -690,31 +802,44 @@ nav{
 
 <div class="nav-inner">
 
-<button class="nav-btn active" onclick="showSection('home',this)">
-  <span class="nav-icon">⌂</span>Home
+<button class="nav-btn active"
+onclick="showSection('home',this)">
+<span class="nav-icon">⌂</span>
+Home
 </button>
 
-<button class="nav-btn" onclick="showSection('workouts',this)">
-  <span class="nav-icon">🔥</span>Workouts
+<button class="nav-btn"
+onclick="showSection('workouts',this)">
+<span class="nav-icon">🔥</span>
+Workouts
 </button>
 
-<button class="nav-btn" onclick="showSection('goals',this)">
-  <span class="nav-icon">🎯</span>Goals
+<button class="nav-btn"
+onclick="showSection('goals',this)">
+<span class="nav-icon">🎯</span>
+Goals
 </button>
 
-<button class="nav-btn" onclick="showSection('progress',this)">
-  <span class="nav-icon">📈</span>Progress
+<button class="nav-btn"
+onclick="showSection('progress',this)">
+<span class="nav-icon">📈</span>
+Progress
 </button>
 
-<button class="nav-btn" onclick="showSection('exercises',this)">
-  <span class="nav-icon">💪</span>Exercises
+<button class="nav-btn"
+onclick="showSection('exercises',this)">
+<span class="nav-icon">💪</span>
+Exercises
 </button>
 
-<button class="nav-btn" onclick="showSection('aven',this)">
-  <span class="nav-icon">🤖</span>Aven
+<button class="nav-btn"
+onclick="showSection('aven',this)">
+<span class="nav-icon">🤖</span>
+Aven
 </button>
 
 </div>
+
 </nav>
 
 
@@ -746,17 +871,29 @@ const defaultData = {
   completedWorkouts:0,
 
   history:[]
+
 };
 
 
-let data = JSON.parse(
-  localStorage.getItem("jehuWorkoutData")
-) || defaultData;
+let stored =
+  localStorage.getItem("jehuWorkoutData");
 
 
-/* =========================
-   HELPERS
-========================= */
+let data;
+
+try{
+
+  data = stored
+    ? JSON.parse(stored)
+    : JSON.parse(JSON.stringify(defaultData));
+
+}catch(error){
+
+  data =
+    JSON.parse(JSON.stringify(defaultData));
+
+}
+
 
 function saveData(){
 
@@ -768,9 +905,13 @@ function saveData(){
 }
 
 
+/* =========================
+   LABELS
+========================= */
+
 function labelFor(type){
 
-  const labels = {
+  const labels={
 
     arms:"Arms",
     chest:"Chest",
@@ -801,8 +942,11 @@ function unitFor(type){
   if(type==="height") return "cm";
 
   if(
-    ["arms","chest","waist","thighs","calves"].includes(type)
-  ) return "cm";
+    ["arms","chest","waist","thighs","calves"]
+    .includes(type)
+  ){
+    return "cm";
+  }
 
   if(type==="pushups") return "reps";
 
@@ -821,7 +965,9 @@ function showSection(id,button){
 
   document
     .querySelectorAll(".section")
-    .forEach(s=>s.classList.remove("active"));
+    .forEach(section=>{
+      section.classList.remove("active");
+    });
 
   document
     .getElementById(id)
@@ -829,9 +975,15 @@ function showSection(id,button){
 
   document
     .querySelectorAll(".nav-btn")
-    .forEach(b=>b.classList.remove("active"));
+    .forEach(btn=>{
+      btn.classList.remove("active");
+    });
 
-  if(button) button.classList.add("active");
+  if(button){
+
+    button.classList.add("active");
+
+  }
 
   if(id==="home") renderHome();
 
@@ -888,10 +1040,14 @@ function saveGoal(){
     document.getElementById("goalType").value;
 
   const current =
-    parseFloat(document.getElementById("goalCurrent").value);
+    parseFloat(
+      document.getElementById("goalCurrent").value
+    );
 
   const target =
-    parseFloat(document.getElementById("goalTarget").value);
+    parseFloat(
+      document.getElementById("goalTarget").value
+    );
 
   const unit =
     document.getElementById("goalUnit").value;
@@ -902,43 +1058,80 @@ function saveGoal(){
   const primary =
     document.getElementById("goalPrimary").checked;
 
-  if(isNaN(current) || isNaN(target)){
+  const customName =
+    document
+      .getElementById("customGoalName")
+      .value
+      .trim();
 
-    alert("Please enter both current and target values.");
 
-    return;
+  if(isNaN(current)){
 
-  }
-
-  if(type==="custom" &&
-     !document.getElementById("customGoalName").value.trim()){
-
-    alert("Please enter a name for your custom goal.");
+    alert("Please enter your current value.");
 
     return;
 
   }
 
-  if(primary){
 
-    data.goals.forEach(g=>g.primary=false);
+  if(isNaN(target)){
 
-  }
+    alert("Please enter your target value.");
 
-  if(data.goals.length===0){
-
-    data.goals.forEach(g=>g.primary=false);
+    return;
 
   }
 
-  const goal = {
+
+  if(type==="custom" && !customName){
+
+    alert("Please enter a name for the custom goal.");
+
+    return;
+
+  }
+
+
+  if(!Array.isArray(data.goals)){
+
+    data.goals=[];
+
+  }
+
+
+  /*
+    If this is the first goal,
+    automatically make it primary.
+  */
+
+  const shouldBePrimary =
+    primary || data.goals.length===0;
+
+
+  /*
+    Only one goal can be primary.
+  */
+
+  if(shouldBePrimary){
+
+    data.goals.forEach(goal=>{
+
+      goal.primary=false;
+
+    });
+
+  }
+
+
+  const newGoal={
 
     id:Date.now(),
 
     type:type,
 
-    name:type==="custom"
-      ? document.getElementById("customGoalName").value.trim()
+    name:
+      type==="custom"
+      ? customName
       : labelFor(type),
 
     current:current,
@@ -949,23 +1142,33 @@ function saveGoal(){
 
     date:date,
 
-    primary:primary || data.goals.length===0,
+    primary:shouldBePrimary,
 
     created:new Date().toISOString()
 
   };
 
-  data.goals.push(goal);
+
+  data.goals.push(newGoal);
+
 
   saveData();
 
+
+  clearGoalForm();
+
   closeGoalModal();
+
 
   renderGoals();
 
   renderHome();
 
-  clearGoalForm();
+
+  alert(
+    newGoal.name +
+    " goal added successfully."
+  );
 
 }
 
@@ -985,69 +1188,83 @@ function clearGoalForm(){
 }
 
 
-function calculateProgress(goal){
+function latestMeasurement(type){
 
-  const start = parseFloat(goal.current);
+  if(!Array.isArray(data.measurements))
+    return null;
 
-  const target = parseFloat(goal.target);
 
-  const latest = latestMeasurement(goal.type);
+  const entries =
+    data.measurements
+      .filter(item=>item.type===type)
+      .sort(
+        (a,b)=>
+          new Date(b.date)-new Date(a.date)
+      );
 
-  const current =
-    latest !== null ? latest : start;
 
-  if(start===target) return 100;
+  if(!entries.length)
+    return null;
 
-  let percentage;
 
-  /*
-    For normal increasing goals:
-    start -> target
-  */
-
-  if(target > start){
-
-    percentage =
-      ((current-start)/(target-start))*100;
-
-  }else{
-
-    /*
-      For goals where a lower value is desired,
-      such as reducing waist.
-    */
-
-    percentage =
-      ((start-current)/(start-target))*100;
-
-  }
-
-  return Math.max(0,Math.min(100,percentage));
+  return Number(entries[0].value);
 
 }
 
 
-function latestMeasurement(type){
+function calculateProgress(goal){
 
-  const entries =
-    data.measurements
-      .filter(m=>m.type===type)
-      .sort((a,b)=>
-        new Date(b.date)-new Date(a.date)
-      );
+  const start=Number(goal.current);
 
-  if(!entries.length) return null;
+  const target=Number(goal.target);
 
-  return parseFloat(entries[0].value);
+  const latest=latestMeasurement(goal.type);
+
+  const current =
+    latest!==null
+    ? latest
+    : start;
+
+
+  if(start===target)
+    return 100;
+
+
+  let percentage;
+
+
+  if(target>start){
+
+    percentage =
+      ((current-start) /
+      (target-start))*100;
+
+  }else{
+
+    percentage =
+      ((start-current) /
+      (start-target))*100;
+
+  }
+
+
+  return Math.max(
+    0,
+    Math.min(100,percentage)
+  );
 
 }
 
 
 function makePrimary(id){
 
-  data.goals.forEach(g=>{
-    g.primary = g.id===id;
+  data.goals.forEach(goal=>{
+
+    goal.primary =
+      Number(goal.id)===Number(id);
+
   });
+
 
   saveData();
 
@@ -1060,17 +1277,35 @@ function makePrimary(id){
 
 function deleteGoal(id){
 
-  if(!confirm("Delete this goal?")) return;
+  if(
+    !confirm(
+      "Delete this goal?"
+    )
+  ){
+    return;
+  }
+
 
   data.goals =
-    data.goals.filter(g=>g.id!==id);
+    data.goals.filter(
+      goal=>Number(goal.id)!==Number(id)
+    );
 
-  if(data.goals.length &&
-     !data.goals.some(g=>g.primary)){
+
+  /*
+    If no primary goal remains,
+    make the first goal primary.
+  */
+
+  if(
+    data.goals.length &&
+    !data.goals.some(goal=>goal.primary)
+  ){
 
     data.goals[0].primary=true;
 
   }
+
 
   saveData();
 
@@ -1086,116 +1321,172 @@ function renderGoals(){
   const box =
     document.getElementById("goalsList");
 
+
+  if(!Array.isArray(data.goals))
+    data.goals=[];
+
+
   if(!data.goals.length){
 
-    box.innerHTML = `
+    box.innerHTML=`
+
       <div class="card empty">
+
         You have not created any goals yet.
+
+        <br><br>
+
+        Tap "Add New Goal" to begin.
+
       </div>
+
     `;
 
     return;
 
   }
 
+
   box.innerHTML =
-    data.goals.map(goal=>{
+    data.goals
+      .map(goal=>{
 
-      const progress =
-        calculateProgress(goal);
+        const progress =
+          calculateProgress(goal);
 
-      const current =
-        latestMeasurement(goal.type) ??
-        goal.current;
 
-      return `
+        const latest =
+          latestMeasurement(goal.type);
 
-        <div class="goal ${goal.primary ? "primary":""}">
 
-          <div class="goal-top">
+        const current =
+          latest!==null
+          ? latest
+          : goal.current;
 
-            <div>
 
-              <div class="goal-name">
+        return `
 
-                ${goal.name}
+          <div class="goal ${goal.primary ? "primary":""}">
 
-                ${
-                  goal.primary
-                  ? `<span class="badge">PRIMARY</span>`
-                  : ""
-                }
+            <div class="goal-top">
+
+              <div>
+
+                <div class="goal-name">
+
+                  ${escapeHTML(goal.name)}
+
+                  ${
+                    goal.primary
+                    ?
+                    `<span class="badge">
+                      PRIMARY
+                    </span>`
+                    :
+                    ""
+                  }
+
+                </div>
+
+                <div class="goal-meta">
+
+                  ${current}
+                  ${goal.unit || ""}
+
+                  →
+
+                  ${goal.target}
+                  ${goal.unit || ""}
+
+                </div>
 
               </div>
 
-              <div class="goal-meta">
+              <strong>
+                ${Math.round(progress)}%
+              </strong>
 
-                ${current} ${goal.unit || ""}
-                →
-                ${goal.target} ${goal.unit || ""}
+            </div>
 
+
+            <div class="progress">
+
+              <div
+                class="progress-bar"
+                style="width:${progress}%">
               </div>
 
             </div>
 
-            <strong>${Math.round(progress)}%</strong>
 
-          </div>
+            <div class="progress-text">
 
-          <div class="progress">
+              ${Math.round(progress)}% complete
 
-            <div
-              class="progress-bar"
-              style="width:${progress}%">
             </div>
 
-          </div>
-
-          <div class="progress-text">
-
-            ${Math.round(progress)}% complete
-
-          </div>
-
-          ${
-            goal.date
-            ? `<div class="goal-meta">
-                Target date: ${formatDate(goal.date)}
-              </div>`
-            : ""
-          }
-
-          <div class="goal-actions row">
 
             ${
-              !goal.primary
-              ? `<button
-                  class="btn small"
-                  onclick="makePrimary(${goal.id})">
-                  Make Primary
-                </button>`
-              : ""
+              goal.date
+              ?
+              `
+              <div class="goal-meta">
+
+                Target date:
+                ${formatDate(goal.date)}
+
+              </div>
+              `
+              :
+              ""
             }
 
-            <button
-              class="btn secondary small"
-              onclick="openMeasurementModal('${goal.type}')">
-              Update
-            </button>
 
-            <button
-              class="btn danger small"
-              onclick="deleteGoal(${goal.id})">
-              Delete
-            </button>
+            <div class="row" style="margin-top:12px">
+
+              ${
+                !goal.primary
+                ?
+                `
+                <button
+                  class="btn small"
+                  onclick="makePrimary(${goal.id})">
+
+                  Make Primary
+
+                </button>
+                `
+                :
+                ""
+              }
+
+
+              <button
+                class="btn secondary small"
+                onclick="openMeasurementModal('${goal.type}')">
+
+                Update
+
+              </button>
+
+
+              <button
+                class="btn danger small"
+                onclick="deleteGoal(${goal.id})">
+
+                Delete
+
+              </button>
+
+            </div>
 
           </div>
 
-        </div>
+        `;
 
-      `;
-
-    }).join("");
+      })
+      .join("");
 
 }
 
@@ -1208,11 +1499,25 @@ function openMeasurementModal(type){
 
   document
     .getElementById("measurementModal")
-    .classList.add("show");
+    .classList
+    .add("show");
+
 
   if(type){
 
-    document.getElementById("measurementType").value=type;
+    const select =
+      document.getElementById("measurementType");
+
+    const option =
+      [...select.options]
+        .find(o=>o.value===type);
+
+
+    if(option){
+
+      select.value=type;
+
+    }
 
   }
 
@@ -1223,7 +1528,8 @@ function closeMeasurementModal(){
 
   document
     .getElementById("measurementModal")
-    .classList.remove("show");
+    .classList
+    .remove("show");
 
 }
 
@@ -1233,20 +1539,32 @@ function saveMeasurement(){
   const type =
     document.getElementById("measurementType").value;
 
+
   const value =
     parseFloat(
-      document.getElementById("measurementValue").value
+      document
+        .getElementById("measurementValue")
+        .value
     );
+
 
   if(isNaN(value)){
 
-    alert("Please enter a valid measurement.");
+    alert("Please enter a valid value.");
 
     return;
 
   }
 
-  const entry = {
+
+  if(!Array.isArray(data.measurements)){
+
+    data.measurements=[];
+
+  }
+
+
+  data.measurements.push({
 
     type:type,
 
@@ -1256,12 +1574,12 @@ function saveMeasurement(){
 
     date:new Date().toISOString()
 
-  };
+  });
 
-  data.measurements.push(entry);
 
   /*
-    Keep profile weight and height synchronized.
+    Synchronise height and weight
+    with the profile.
   */
 
   if(type==="weight"){
@@ -1270,19 +1588,21 @@ function saveMeasurement(){
 
   }
 
+
   if(type==="height"){
 
     data.profile.height=value;
 
   }
 
+
   /*
-    Update performance records.
+    Update personal records.
   */
 
   if(type==="pushups"){
 
-    if(value > (data.records.pushups || 0)){
+    if(value>(data.records.pushups || 0)){
 
       data.records.pushups=value;
 
@@ -1290,9 +1610,10 @@ function saveMeasurement(){
 
   }
 
+
   if(type==="plank"){
 
-    if(value > (data.records.plank || 0)){
+    if(value>(data.records.plank || 0)){
 
       data.records.plank=value;
 
@@ -1300,30 +1621,17 @@ function saveMeasurement(){
 
   }
 
-  /*
-    Update matching goals automatically.
-  */
-
-  data.goals.forEach(goal=>{
-
-    if(goal.type===type){
-
-      /*
-        The original current value remains the baseline.
-        The latest measurement becomes the current progress.
-      */
-
-      goal.lastUpdated=new Date().toISOString();
-
-    }
-
-  });
 
   saveData();
 
-  document.getElementById("measurementValue").value="";
+
+  document
+    .getElementById("measurementValue")
+    .value="";
+
 
   closeMeasurementModal();
+
 
   renderHome();
 
@@ -1331,12 +1639,19 @@ function saveMeasurement(){
 
   renderProgress();
 
+
+  alert(
+    labelFor(type) +
+    " measurement saved."
+  );
+
 }
 
 
 function renderProgress(){
 
-  const types = [
+  const types=[
+
     "weight",
     "height",
     "arms",
@@ -1346,40 +1661,48 @@ function renderProgress(){
     "calves",
     "pushups",
     "plank"
+
   ];
+
 
   const grid =
     document.getElementById("measurementGrid");
 
+
   grid.innerHTML =
-    types.map(type=>{
+    types
+      .map(type=>{
 
-      const latest =
-        latestMeasurement(type);
+        const latest =
+          latestMeasurement(type);
 
-      return `
 
-        <div class="stat">
+        return `
 
-          <div class="label">
-            ${labelFor(type)}
+          <div class="stat">
+
+            <div class="label">
+              ${labelFor(type)}
+            </div>
+
+            <div class="value">
+
+              ${
+                latest!==null
+                ?
+                latest+" "+unitFor(type)
+                :
+                "—"
+              }
+
+            </div>
+
           </div>
 
-          <div class="value">
+        `;
 
-            ${
-              latest !== null
-              ? latest + " " + unitFor(type)
-              : "—"
-            }
-
-          </div>
-
-        </div>
-
-      `;
-
-    }).join("");
+      })
+      .join("");
 
 
   renderRecords();
@@ -1394,16 +1717,38 @@ function renderRecords(){
   const box =
     document.getElementById("recordsList");
 
-  box.innerHTML = `
+
+  box.innerHTML=`
 
     <div class="history-item">
-      <strong>Maximum Push-ups:</strong>
-      ${data.records.pushups || 0} reps
+
+      <strong>
+        Maximum Push-ups
+      </strong>
+
+      <div class="muted">
+
+        ${data.records.pushups || 0} reps
+
+      </div>
+
     </div>
 
+
     <div class="history-item">
-      <strong>Maximum Plank:</strong>
-      ${formatSeconds(data.records.plank || 0)}
+
+      <strong>
+        Maximum Plank
+      </strong>
+
+      <div class="muted">
+
+        ${formatSeconds(
+          data.records.plank || 0
+        )}
+
+      </div>
+
     </div>
 
   `;
@@ -1416,43 +1761,57 @@ function renderMeasurementHistory(){
   const box =
     document.getElementById("measurementHistory");
 
-  const history =
-    [...data.measurements]
-      .sort((a,b)=>
-        new Date(b.date)-new Date(a.date)
-      );
 
-  if(!history.length){
+  if(!data.measurements.length){
 
-    box.innerHTML =
-      `<div class="empty">
+    box.innerHTML=`
+
+      <div class="empty">
+
         No measurements recorded yet.
-      </div>`;
+
+      </div>
+
+    `;
 
     return;
 
   }
 
+
+  const history =
+    [...data.measurements]
+      .sort(
+        (a,b)=>
+          new Date(b.date)-new Date(a.date)
+      );
+
+
   box.innerHTML =
-    history.map(item=>`
+    history
+      .map(item=>`
 
-      <div class="history-item">
+        <div class="history-item">
 
-        <strong>${labelFor(item.type)}</strong>
+          <strong>
+            ${labelFor(item.type)}
+          </strong>
 
-        <div class="muted">
+          <div class="muted">
 
-          ${item.value} ${item.unit || ""}
+            ${item.value}
+            ${item.unit || ""}
 
-          ·
+            ·
 
-          ${formatDateTime(item.date)}
+            ${formatDateTime(item.date)}
+
+          </div>
 
         </div>
 
-      </div>
-
-    `).join("");
+      `)
+      .join("");
 
 }
 
@@ -1464,47 +1823,69 @@ function renderMeasurementHistory(){
 function renderHome(){
 
   document.getElementById("greeting").textContent =
-    `Welcome, ${data.profile.name || "Jehu"}`;
+    "Welcome, " +
+    (data.profile.name || "Jehu");
+
 
   document.getElementById("homeWeight").textContent =
     data.profile.weight
-      ? `${data.profile.weight} kg`
-      : "—";
+    ? data.profile.weight+" kg"
+    : "—";
+
 
   document.getElementById("homeHeight").textContent =
     data.profile.height
-      ? `${data.profile.height} cm`
-      : "—";
+    ? data.profile.height+" cm"
+    : "—";
+
 
   document.getElementById("homeWorkouts").textContent =
     data.completedWorkouts || 0;
 
+
   const primary =
-    data.goals.find(g=>g.primary);
+    data.goals.find(
+      goal=>goal.primary
+    );
+
 
   document.getElementById("homeGoal").textContent =
-    primary ? primary.name : "None";
+    primary
+    ? primary.name
+    : "None";
+
 
   const box =
     document.getElementById("homeGoalProgress");
 
+
   if(!primary){
 
-    box.innerHTML =
-      `<p class="muted">
-        Create a goal to begin tracking your progress.
-      </p>`;
+    box.innerHTML=`
+
+      <p class="muted">
+
+        Create your first goal to start
+        tracking progress.
+
+      </p>
+
+    `;
 
     return;
 
   }
 
+
   const progress =
     calculateProgress(primary);
 
-  box.innerHTML = `
 
-    <h3>${primary.name}</h3>
+  box.innerHTML=`
+
+    <h3>
+      ${escapeHTML(primary.name)}
+    </h3>
 
     <div class="progress">
 
@@ -1530,14 +1911,28 @@ function renderHome(){
    PROFILE
 ========================= */
 
+function loadProfile(){
+
+  document.getElementById("profileName").value =
+    data.profile.name || "Jehu";
+
+
+  document.getElementById("profileAge").value =
+    data.profile.age || "";
+
+}
+
+
 function saveProfile(){
 
   data.profile.name =
     document.getElementById("profileName").value.trim()
     || "Jehu";
 
+
   data.profile.age =
     document.getElementById("profileAge").value;
+
 
   saveData();
 
@@ -1548,24 +1943,14 @@ function saveProfile(){
 }
 
 
-function loadProfile(){
-
-  document.getElementById("profileName").value =
-    data.profile.name || "";
-
-  document.getElementById("profileAge").value =
-    data.profile.age || "";
-
-}
-
-
 /* =========================
-   WORKOUT ENGINE
+   WORKOUTS
 ========================= */
 
-const workouts = {
+const workouts={
 
   monday:{
+
     name:"Monday — Chest, Arms & Abs",
 
     exercises:[
@@ -1582,7 +1967,9 @@ const workouts = {
 
   },
 
+
   wednesday:{
+
     name:"Wednesday — Back, Shoulders, Arms & Abs",
 
     exercises:[
@@ -1599,7 +1986,9 @@ const workouts = {
 
   },
 
+
   saturday:{
+
     name:"Saturday — Full Body",
 
     exercises:[
@@ -1625,69 +2014,78 @@ function renderWorkouts(){
   const day =
     new Date().getDay();
 
-  let today;
 
-  if(day===1) today=workouts.monday;
+  let today=null;
 
-  if(day===3) today=workouts.wednesday;
 
-  if(day===6) today=workouts.saturday;
+  if(day===1)
+    today=workouts.monday;
 
-  const text =
-    document.getElementById("todayWorkoutText");
 
-  if(today){
+  if(day===3)
+    today=workouts.wednesday;
 
-    text.textContent =
-      `Today's session: ${today.name}`;
 
-  }else{
+  if(day===6)
+    today=workouts.saturday;
 
-    text.textContent =
-      "Today is a recovery day. Your next workout is coming.";
 
-  }
+  document.getElementById("todayWorkoutText").textContent =
+    today
+    ? "Today's session: "+today.name
+    : "Today is a recovery day.";
+
 
   const box =
     document.getElementById("workoutList");
 
+
   box.innerHTML =
-    Object.entries(workouts).map(([id,w])=>`
+    Object.entries(workouts)
+      .map(
+        ([id,workout])=>`
 
-      <div class="card">
+          <div class="card">
 
-        <h2>${w.name}</h2>
+            <h2>
+              ${workout.name}
+            </h2>
 
-        <p class="muted">
-          ${w.exercises.length} exercises
-        </p>
+            <p class="muted">
 
-        <div style="height:12px"></div>
+              ${workout.exercises.length}
+              exercises
 
-        <button
-          class="btn"
-          onclick="startWorkout('${id}')">
+            </p>
 
-          Start Workout
+            <div style="height:12px"></div>
 
-        </button>
+            <button
+              class="btn"
+              onclick="startWorkout('${id}')">
 
-      </div>
+              Start Workout
 
-    `).join("");
+            </button>
+
+          </div>
+
+        `
+      )
+      .join("");
 
 }
 
 
-let workoutSession = null;
+let workoutSession=null;
 
 
 function startWorkout(id){
 
-  const workout =
-    workouts[id];
+  const workout=workouts[id];
 
-  workoutSession = {
+
+  workoutSession={
 
     id:id,
 
@@ -1697,16 +2095,16 @@ function startWorkout(id){
 
     setIndex:1,
 
-    totalSets:workout.exercises
-      .reduce((sum,e)=>sum+e[1],0),
-
     completedSets:0
 
   };
 
+
   document
     .getElementById("workoutModal")
-    .classList.add("show");
+    .classList
+    .add("show");
+
 
   renderWorkoutEngine();
 
@@ -1715,10 +2113,13 @@ function startWorkout(id){
 
 function renderWorkoutEngine(){
 
-  const s = workoutSession;
+  const session=workoutSession;
+
 
   const exercise =
-    s.workout.exercises[s.exerciseIndex];
+    session.workout
+      .exercises[session.exerciseIndex];
+
 
   const name=exercise[0];
 
@@ -1726,30 +2127,41 @@ function renderWorkoutEngine(){
 
   const reps=exercise[2];
 
-  document.getElementById("workoutTitle").textContent =
-    s.workout.name;
 
-  document.getElementById("workoutEngine").innerHTML = `
+  document.getElementById("workoutTitle").textContent =
+    session.workout.name;
+
+
+  document.getElementById("workoutEngine").innerHTML=`
 
     <div class="card">
 
-      <h2>${name}</h2>
+      <h2>
+        ${name}
+      </h2>
 
       <p class="muted">
-        Set ${s.setIndex} of ${sets}
+
+        Set ${session.setIndex}
+        of ${sets}
+
       </p>
 
-      <div style="height:10px"></div>
+      <div style="height:12px"></div>
 
       <div class="stat">
 
-        <div class="label">Target</div>
+        <div class="label">
+          Target
+        </div>
 
-        <div class="value">${reps}</div>
+        <div class="value">
+          ${reps}
+        </div>
 
       </div>
 
-      <div style="height:15px"></div>
+      <div style="height:14px"></div>
 
       <button
         class="btn full"
@@ -1759,7 +2171,7 @@ function renderWorkoutEngine(){
 
       </button>
 
-      <div style="height:10px"></div>
+      <div style="height:9px"></div>
 
       <button
         class="btn secondary full"
@@ -1778,29 +2190,34 @@ function renderWorkoutEngine(){
 
 function completeSet(){
 
-  const s=workoutSession;
+  const session=workoutSession;
+
 
   const exercise =
-    s.workout.exercises[s.exerciseIndex];
+    session.workout
+      .exercises[session.exerciseIndex];
+
 
   const sets=exercise[1];
 
-  s.completedSets++;
 
-  if(s.setIndex < sets){
+  session.completedSets++;
 
-    s.setIndex++;
+
+  if(session.setIndex<sets){
+
+    session.setIndex++;
 
   }else{
 
     if(
-      s.exerciseIndex <
-      s.workout.exercises.length-1
+      session.exerciseIndex <
+      session.workout.exercises.length-1
     ){
 
-      s.exerciseIndex++;
+      session.exerciseIndex++;
 
-      s.setIndex=1;
+      session.setIndex=1;
 
     }else{
 
@@ -1812,6 +2229,7 @@ function completeSet(){
 
   }
 
+
   renderWorkoutEngine();
 
 }
@@ -1819,16 +2237,17 @@ function completeSet(){
 
 function skipExercise(){
 
-  const s=workoutSession;
+  const session=workoutSession;
+
 
   if(
-    s.exerciseIndex <
-    s.workout.exercises.length-1
+    session.exerciseIndex <
+    session.workout.exercises.length-1
   ){
 
-    s.exerciseIndex++;
+    session.exerciseIndex++;
 
-    s.setIndex=1;
+    session.setIndex=1;
 
     renderWorkoutEngine();
 
@@ -1843,30 +2262,35 @@ function skipExercise(){
 
 function finishWorkout(){
 
-  const s=workoutSession;
-
   data.completedWorkouts =
     (data.completedWorkouts || 0)+1;
+
 
   data.history.push({
 
     type:"workout",
 
-    workout:s.workout.name,
+    workout:
+      workoutSession.workout.name,
 
-    date:new Date().toISOString(),
+    sets:
+      workoutSession.completedSets,
 
-    sets:s.completedSets
+    date:
+      new Date().toISOString()
 
   });
 
-  saveData();
 
-  alert("Workout complete. Excellent work.");
+  saveData();
 
   closeWorkout();
 
   renderHome();
+
+  alert(
+    "Workout complete. Excellent work, Jehu."
+  );
 
 }
 
@@ -1875,7 +2299,9 @@ function closeWorkout(){
 
   document
     .getElementById("workoutModal")
-    .classList.remove("show");
+    .classList
+    .remove("show");
+
 
   workoutSession=null;
 
@@ -1883,26 +2309,41 @@ function closeWorkout(){
 
 
 /* =========================
-   EXERCISES
+   EXERCISE LIBRARY
 ========================= */
 
-const exerciseLibrary = [
+const exerciseLibrary=[
 
   ["Standard Push-up","Chest, triceps","Keep your body straight and lower your chest under control."],
+
   ["Wide Push-up","Chest","Place your hands wider than shoulder width."],
+
   ["Diamond Push-up","Triceps, chest","Bring your hands close together beneath your chest."],
+
   ["Pike Push-up","Shoulders, triceps","Raise your hips and lower your head towards the floor."],
+
   ["Bodyweight Squat","Thighs, glutes","Keep your chest up and sit your hips back."],
+
   ["Reverse Lunge","Thighs, glutes","Step backwards and lower your body under control."],
-  ["Glute Bridge","Glutes","Drive your hips upward and squeeze the glutes."],
+
+  ["Glute Bridge","Glutes","Drive your hips upward and squeeze your glutes."],
+
   ["Calf Raise","Calves","Rise onto the balls of your feet and lower slowly."],
+
   ["Crunch","Abs","Curl your upper body towards your pelvis."],
+
   ["Reverse Crunch","Abs","Bring your knees towards your chest using your abdominal muscles."],
+
   ["Leg Raise","Abs","Raise and lower your legs under control."],
+
   ["Plank","Core","Keep your body in a straight line and brace your abdomen."],
+
   ["Superman","Back","Lift your arms and legs while lying face down."],
+
   ["Reverse Snow Angel","Upper back, shoulders","Move your arms slowly through the snow-angel pattern."],
+
   ["Self-Resisted Biceps Curl","Biceps","Use one hand to provide resistance to the working arm."],
+
   ["Triceps Extension","Triceps","Extend the arm against controlled resistance."]
 
 ];
@@ -1913,36 +2354,46 @@ function renderExercises(){
   const box =
     document.getElementById("exerciseList");
 
+
   box.innerHTML =
-    exerciseLibrary.map(e=>`
+    exerciseLibrary
+      .map(exercise=>`
 
-      <div class="exercise">
+        <div class="exercise">
 
-        <div class="exercise-name">
-          ${e[0]}
+          <div class="exercise-name">
+
+            ${exercise[0]}
+
+          </div>
+
+          <div class="exercise-info">
+
+            Muscles:
+            ${exercise[1]}
+
+          </div>
+
+          <div class="exercise-info">
+
+            ${exercise[2]}
+
+          </div>
+
+          <div style="height:8px"></div>
+
+          <button
+            class="btn secondary small"
+            onclick="alert('Exercise videos will be added later.')">
+
+            Watch Demo
+
+          </button>
+
         </div>
 
-        <div class="exercise-info">
-          Muscles: ${e[1]}
-        </div>
-
-        <div class="exercise-info">
-          ${e[2]}
-        </div>
-
-        <div style="height:8px"></div>
-
-        <button
-          class="btn secondary small"
-          onclick="alert('Exercise video will be added in the video phase.')">
-
-          Watch Demo
-
-        </button>
-
-      </div>
-
-    `).join("");
+      `)
+      .join("");
 
 }
 
@@ -1953,29 +2404,50 @@ function renderExercises(){
 
 function formatDate(date){
 
-  if(!date) return "";
+  if(!date)
+    return "";
 
-  return new Date(date).toLocaleDateString();
+  return new Date(date)
+    .toLocaleDateString();
 
 }
 
 
 function formatDateTime(date){
 
-  return new Date(date).toLocaleString();
+  return new Date(date)
+    .toLocaleString();
 
 }
 
 
 function formatSeconds(seconds){
 
-  seconds=parseInt(seconds)||0;
+  seconds =
+    parseInt(seconds) || 0;
 
-  const min=Math.floor(seconds/60);
 
-  const sec=seconds%60;
+  const minutes =
+    Math.floor(seconds/60);
 
-  return `${min}m ${sec}s`;
+
+  const remaining =
+    seconds%60;
+
+
+  return minutes+"m "+remaining+"s";
+
+}
+
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
@@ -1986,11 +2458,19 @@ function formatSeconds(seconds){
 
 function resetApp(){
 
-  if(!confirm(
-    "This will permanently erase your goals, measurements and workout history. Continue?"
-  )) return;
+  if(
+    !confirm(
+      "This will permanently erase all app data. Continue?"
+    )
+  ){
+    return;
+  }
 
-  localStorage.removeItem("jehuWorkoutData");
+
+  localStorage.removeItem(
+    "jehuWorkoutData"
+  );
+
 
   location.reload();
 
@@ -2004,28 +2484,40 @@ function resetApp(){
 function initialise(){
 
   /*
-    Make sure older Phase 1 data does not break.
+    Protect against missing data
+    from older versions.
   */
 
-  if(!data.goals) data.goals=[];
+  if(!data.profile)
+    data.profile={};
 
-  if(!data.measurements) data.measurements=[];
+  if(!Array.isArray(data.goals))
+    data.goals=[];
 
-  if(!data.records){
+  if(!Array.isArray(data.measurements))
+    data.measurements=[];
 
-    data.records={
-      pushups:0,
-      plank:0
-    };
+  if(!data.records)
+    data.records={};
 
-  }
+  if(!data.history)
+    data.history=[];
 
-  if(!data.history) data.history=[];
+  if(typeof data.records.pushups!=="number")
+    data.records.pushups=0;
 
-  if(!data.completedWorkouts)
+  if(typeof data.records.plank!=="number")
+    data.records.plank=0;
+
+  if(typeof data.completedWorkouts!=="number")
     data.completedWorkouts=0;
 
+  if(!data.profile.name)
+    data.profile.name="Jehu";
+
+
   saveData();
+
 
   loadProfile();
 
