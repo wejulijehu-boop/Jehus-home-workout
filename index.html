@@ -1,0 +1,239 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111827">
+    <meta name="description" content="Jehu's Home Workout - Build bigger arms, chest and abs at home with no equipment.">
+
+    <title>Jehu's Home Workout</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .goal {
+            text-align: center;
+        }
+
+        .goal-date {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .days {
+            font-size: 18px;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .primary {
+            background: #111827;
+            color: white;
+        }
+
+        .secondary {
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        .workout {
+            display: none;
+        }
+
+        .exercise {
+            margin: 14px 0;
+            padding: 14px;
+            background: #f9fafb;
+            border-radius: 12px;
+        }
+
+        .exercise strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e5e7eb;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .timer {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>JEHU'S HOME WORKOUT</h1>
+    <p>Build. Train. Transform.</p>
+</header>
+
+<div class="container">
+
+    <div class="card goal">
+        <h2>Your Goal</h2>
+        <div class="goal-date">6 December 2026</div>
+        <div class="days" id="daysRemaining"></div>
+        <p>Focus: Bigger Arms • Chest • Abs</p>
+    </div>
+
+    <div id="home">
+
+        <div class="card">
+            <h2>Today's Workout</h2>
+            <p id="todayWorkout">Loading...</p>
+            <button class="primary" onclick="showWorkout()">
+                START WORKOUT
+            </button>
+        </div>
+
+        <div class="card">
+            <h2>Weekly Programme</h2>
+            <p><strong>Monday:</strong> Chest + Arms + Abs</p>
+            <p><strong>Wednesday:</strong> Shoulders + Back + Arms + Abs</p>
+            <p><strong>Saturday:</strong> Full Body + Chest + Arms + Abs</p>
+            <p><strong>Other days:</strong> Recovery</p>
+        </div>
+
+        <div class="card">
+            <h2>Progress</h2>
+            <p>Workouts completed: <strong id="workoutsCompleted">0</strong></p>
+            <button class="secondary" onclick="completeWorkout()">
+                MARK WORKOUT COMPLETE
+            </button>
+        </div>
+
+    </div>
+
+    <div id="workout" class="workout">
+
+        <div class="card">
+            <h2 id="workoutTitle">Workout</h2>
+
+            <div class="timer" id="timer">30</div>
+
+            <div id="exerciseList"></div>
+
+            <button class="primary" onclick="startTimer()">
+                START TIMER
+            </button>
+
+            <button class="secondary" onclick="hideWorkout()">
+                BACK
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const workouts = {
+
+    monday: {
+        title: "Chest + Arms + Abs",
+        exercises: [
+            ["Standard Push-ups", "3 sets × 8–15 reps", "Chest + Triceps"],
+            ["Wide Push-ups", "3 sets × 8–15 reps", "Chest"],
+            ["Diamond Push-ups", "3 sets × 6–12 reps", "Triceps + Chest"],
+            ["Pike Push-ups", "3 sets × 6–12 reps", "Shoulders"],
+            ["Self-resisted Biceps Curl", "3 sets × 10–15 reps", "Biceps"],
+            ["Triceps Extensions", "3 sets × 10–15 reps", "Triceps"],
+            ["Crunches", "3 sets × 15–25 reps", "Abs"],
+            ["Reverse Crunches", "3 sets × 10–15 reps", "Lower Abs"],
+            ["Leg Raises", "3 sets × 10–15 reps", "Abs"],
+            ["Plank", "3 sets × 30–60 seconds", "Core"]
+        ]
+    },
+
+    wednesday: {
+        title: "Shoulders + Back + Arms + Abs",
+        exercises: [
+            ["Pike Push-ups", "3 sets × 6–12 reps", "Shoulders"],
+            ["Superman", "3 sets × 12–20 reps", "Back"],
+            ["Reverse Snow Angels", "3 sets × 10–15 reps", "Upper Back"],
+            ["Prone Y-T-W Raises", "3 sets × 8–12 reps", "Shoulders + Back"],
+            ["Self-resisted Biceps Curl", "3 sets × 10–15 reps", "Biceps"],
+            ["Diamond Push-ups", "3 sets × 6–12 reps", "Triceps"],
+            ["Leg Raises", "3 sets × 10–15 reps", "Abs"],
+            ["Bicycle Crunches", "3 sets × 15–25 reps", "Abs"],
+            ["Plank", "3 sets × 30–60 seconds", "Core"]
+        ]
+    },
+
+    saturday: {
+        title: "Full Body + Chest + Arms + Abs",
+        exercises: [
+            ["Push-ups", "4 sets × 8–15 reps", "Chest + Triceps"],
+            ["Diamond Push-ups", "3 sets × 6–12 reps", "Triceps + Chest"],
+            ["Pike Push-ups", "3 sets × 6–12 reps", "Shoulders"],
+            ["Bodyweight Squats", "4 sets × 12–20 reps", "Legs"],
+            ["Reverse Lunges", "3 sets × 10–15 each leg", "Legs"],
+            ["Glute Bridges", "3 sets × 15–20 reps", "Glutes"],
+            ["Calf Raises", "4 sets × 15–25 reps", "Calves"],
+```
